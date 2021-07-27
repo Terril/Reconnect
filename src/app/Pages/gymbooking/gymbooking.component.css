@@ -1,0 +1,76 @@
+.header_banner{width: 100%;height: 130px; background:url(../../../assets/banner-bg.jpg);--background-repeat: no-repeat;
+    --background-size: cover;  background-size: cover;}
+  .header_overlay{background:#20978f69;height: 130px;}
+  .icon_conatiner{padding-top: 10px;}
+  ion-back-button{
+    --color: white;
+  }
+  .header_title{color: #fff;text-align: center;width: 100%;font-family:Poppins-Medium !important;font-size: 18px;;}
+  ._menu_icon{color: #fff;margin: 0px 0px;font-size: 30px;}   
+  ._cart_icon{color: #fff;margin: 8px 0px;font-size: 26px;margin-left: 10px;}
+  .right_logo{width: 30px;height: 35px;float: right;margin-top: -19px;margin-right: 15px;}
+  .container_view{margin: 10px;}
+  .expandable_container{background: #fff;}
+  .exapandable_view{background-color: #75b1b9;padding: 5px;width: 100%;color:#fff;font-family:Poppins-Medium !important;}
+  .card_lable{    color: #fff;font-family: Poppins-Mediam!important;font-size: 18px;position: relative;font-weight: bolder;top: 20px;width: 100px;} 
+.day_passess{ background: url(../../../assets/dahsboard/day_passess.jpg); --background-size: cover;background-size: cover;height: 100px;padding: 0px;margin: 0px;}
+.gym_booking{ background: url(../../../assets/dahsboard/gym_booking.jpg); --background-size: cover;background-size: cover;height: 100px;padding: 0px;margin: 0px;}  
+.class_booking{ background: url(../../../assets/dahsboard/class_booking.jpg); --background-size: cover;background-size: cover;height: 100px;padding: 0px;margin: 0px;}  
+.vouchers{ background: url(../../../assets/dahsboard/vouchers.jpg); --background-size: cover;background-size: cover;height: 100px;padding: 0px;margin: 0px;}
+.partner_offers{ background: url(../../../assets/dahsboard/partner_offers.jpg); --background-size: cover;background-size: cover;height: 100px;padding: 0px;margin: 0px;}
+.promotion{ background: url(../../../assets/dahsboard/promotion.jpg); --background-size: cover;background-size: cover;height: 100px;padding: 0px;margin: 0px;}
+.black_layer{background: #20978f6b;height: 100px;}
+.active_layer{background: #20978fbf;height: 100px;}
+
+  .date_list
+  {
+      visibility: hidden;
+  }
+  .arrow_right{color: rgba(80, 79, 79, 0.867);}
+  .change-address-shipping-modal{
+    --height:60%;
+    align-items: flex-end;
+  }
+  .month_name{font-family:Poppins-Medium !important;    margin-left: 5px;}
+  .date_box{margin-left: 8px;
+    margin-top: 5px;}
+  .date_conatiner{  
+      text-align: center;
+    width: 58px;
+    height: 58px;
+    padding: 10px;
+    font-family:Poppins-Medium !important;
+    font-size: 14px;
+    line-height: 18px;
+    border: 2px solid #ddd;
+    display: block;
+    border-radius: 5px;}
+
+    .date_conatiner_active{  
+        text-align: center;
+      width: 58px;
+      height: 58px;
+      color: #fff;
+      background: #047afe;
+      padding: 10px;
+      font-family:Poppins-Medium !important;
+      font-size: 14px;
+      line-height: 18px;
+      border: 2px solid #ddd;
+      display: block;
+      border-radius: 5px;}
+      .time_container{margin: 10px;}
+      .time_slot{text-align: center; background: #75b1b9;color: white;font-family:Poppins-Medium !important;margin: 10px;}
+      .time_slot_active{text-align: center; background: #20978F;color: white;font-family:Poppins-Medium !important;margin: 10px;}
+      .login_button{  
+        margin: 0px auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        --background-activated:#20978F;
+        display: block;
+        --background: #75b1b9;
+        font-size: 18px;
+        --border-radius: 5px;
+        height: 2.5em;}
+.login_button:hover{--background-hover: #75b1b9;}
+ 

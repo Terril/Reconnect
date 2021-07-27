@@ -1,0 +1,59 @@
+<ion-content >
+
+
+   
+        <ion-grid>
+    
+          <ion-row>
+           <ion-col size="6" >
+             <ion-card class="day_passess" (click)="select_branch(1)" >
+                 <ion-card-content [ngClass]="this.activaLayer == 1 ? 'active_layer' : 'black_layer'">
+                   <h1 class="card_lable"   >Towel</h1>
+    
+                 </ion-card-content>
+             </ion-card>
+           </ion-col>
+           <ion-col size="6">  
+             <ion-card class="gym_booking" (click)="select_branch(2)" >
+               <ion-card-content [ngClass]="this.activaLayer == 2 ? 'active_layer' : 'black_layer'">
+                 <h1 class="card_lable"   >Water Bottle</h1>
+               
+               </ion-card-content>
+           </ion-card></ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="6" >
+              <ion-card class="day_passess" (click)="select_branch(3)" >
+                  <ion-card-content [ngClass]="this.activaLayer == 3 ? 'active_layer' : 'black_layer'">
+                    <h1 class="card_lable"   >Towel</h1>
+     
+                  </ion-card-content>
+              </ion-card>
+            </ion-col>
+            <ion-col size="6">  
+              <ion-card class="gym_booking" (click)="select_branch(4)" >
+                <ion-card-content [ngClass]="this.activaLayer == 4 ? 'active_layer' : 'black_layer'">
+                  <h1 class="card_lable"   >Water Bottle</h1>
+                
+                </ion-card-content>
+            </ion-card></ion-col>
+           </ion-row>
+   
+          
+   
+          
+       
+         </ion-grid>  
+ 
+     
+      <ion-row><ion-label class="p_sub">Would you like to pick this ?</ion-label></ion-row>
+      <ion-row class="button_container">
+        <ion-buttons style="width: 80%;margin: 0px auto;">
+          <ion-button class="action_button_yes"(click)="checkout()" >Yes</ion-button>
+          <ion-button class="action_button_no" (click)="dismiss()" >No</ion-button>
+        </ion-buttons>
+     
+      </ion-row>
+
+</ion-content>

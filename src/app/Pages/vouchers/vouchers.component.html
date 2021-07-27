@@ -1,0 +1,39 @@
+
+  <ion-content [fullscreen]="true">
+
+    <div class="header_banner">
+      <div class="header_overlay">
+         <div class="icon_conatiner">
+
+          <ion-row>
+           <ion-col size="2" ><ion-back-button defaultHref="tablinks"></ion-back-button></ion-col>
+           <ion-col size="1" offset="7"><ion-icon  class="_cart_icon" name="bag-handle-outline"></ion-icon></ion-col>
+           <ion-col size="2" ><ion-menu-button item-right class="_menu_icon"></ion-menu-button></ion-col>
+          
+          </ion-row>
+          <ion-row><ion-label class="header_title">My Vouchers</ion-label></ion-row>
+         </div>
+   
+      </div>
+    </div>
+    
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" (click)="opn_qr(card.qrCodeBase64)" *ngFor="let card of vouchersList">
+            <ion-card class="promotion" >
+              <ion-card-content class="black_layer"> 
+                <img src="../../../assets/bgvouchers.png">
+              <ion-label class="voucher_lable">{{card.branchName}}</ion-label>
+              </ion-card-content></ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    
+     
+  
+
+      
+     
+  
+  
+  </ion-content>

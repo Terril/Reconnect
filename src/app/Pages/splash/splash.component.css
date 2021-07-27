@@ -1,0 +1,13 @@
+.body_container{width: 100%; background:url(../../../assets/login-bg.png);height:  100%;--background-repeat: no-repeat ;--background-size: cover; }
+.body_overlay{background:#75b1b9e0;height: 100%;}
+.slogan_container{width: 80%;margin: 0px auto;display: block;text-align: center;margin-top: 38px;}
+.slogan{color: #fff; font-family:Poppins-Medium !important;font-size: 25px;opacity: 0.4;font-weight: 600;}
+.slogan_pre{ font-family:Poppins-Light !important;color: #fff;font-weight: 500;}
+.logo_container{width: 15%;margin: 0px auto;}
+.logo_container img{margin-top: 50px;}
+._button{ --background-activated:#fff; width: 80%;margin: 0px auto;  --border-radius: 5px!important; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);font-family:Poppins-Medium !important;font-weight: bold; margin-top: 20px; color: #2a918a; --background: #fff;font-size: 18px;--border-radius: 6px;display: block;height: 50px;}
+._button:hover{--background-hover: #fff;--background: #fff;outline: none;}
+.footer_pre{font-family:Poppins-Medium !important;}
+.footer_text{ width: 100%;padding-bottom: 0 !important;position: fixed;bottom:0px; padding: 5px;margin-bottom: 30px; margin-top: 20px; font-family:Poppins-Light !important;color: #fff;font-weight: 500;font-size: 10px;text-align: center;float: right;}
+.text_logo{text-align: center;color: #fff; font-family:Poppins-Medium !important;font-size: 30px;font-weight: bolder;}
+.lower_content { padding-bottom: 0 !important;position: fixed;bottom:0px; padding: 5px;margin-bottom: 30px;  color: #28aebb;font-size: 14px;float: right;text-decoration: none;text-align: center;}

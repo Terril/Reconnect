@@ -24,3 +24,81 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+  font-family: 'Poppins-Black';
+  src: url('./assets/fonts/Poppins-Black.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins-Light';
+  src: url('./assets/fonts/Poppins-Light.ttf');
+}
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: url('./assets/fonts/Poppins-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins-ExtraLight';
+  src: url('./assets/fonts/Poppins-ExtraLight.ttf');
+}
+@font-face {
+  font-family: 'Poppins-Regular';
+  src: url('./assets/fonts/Poppins-Regular.ttf');
+}
+
+
+
+.add-booking-modal {
+        ion-backdrop {
+          visibility: visible !important;
+        }
+        .modal-wrapper {
+          overflow: hidden;
+          top: 65%;
+          left: 0;
+          position: absolute;
+          width: 100%;
+          height: 70%;
+        }
+      }
+
+      
+
+.qr-code-modal {
+        ion-backdrop {
+          visibility: visible !important;
+        }
+        .modal-wrapper {
+          overflow: hidden;
+          top: 20%;
+          bottom: 10%;
+          left: 0;
+          right: 0;
+          position: absolute;
+          width: 90%;
+          margin: 0px auto;
+          height: 60%;
+        }
+      }    
+.welcome_popup {
+  ion-backdrop {
+    visibility: visible !important;
+  }
+  .modal-wrapper {
+    overflow: hidden;
+    top: 20%;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    width: 90%;
+    margin: 0px auto;
+    height: 60%;
+  }
+}    
+    
+
+
+      

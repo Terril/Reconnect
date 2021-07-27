@@ -1,0 +1,228 @@
+
+
+
+  <ion-content [fullscreen]="true" #loadingIcon>
+
+    <div class="header_banner">
+      <div class="header_overlay">
+         <div class="icon_conatiner">
+
+          <ion-row>
+           <ion-col size="2" ><ion-back-button defaultHref="tablinks"></ion-back-button></ion-col>
+           <ion-col size="1" offset="7"><ion-icon  class="_cart_icon" name="bag-handle-outline"></ion-icon></ion-col>
+           <ion-col size="2" ><ion-menu-button item-right class="_menu_icon"></ion-menu-button></ion-col>
+          
+          </ion-row>
+          <div class="_curve">
+            <ion-avatar style="width: 100px;
+            height: 100px">
+            <img class="profile_img" (click)="opncamera()" *ngIf="img" [src]="img"/> 
+            </ion-avatar>
+           
+          </div>
+          <div class="mem_title">
+            
+            <ion-label >UPLOAD PROFILE PITCUTRE<input type="file" id="myFileInput" value="" (change)="fileChange($event)"></ion-label>
+          </div>
+          
+
+          <div class="more_info">
+            <div>
+ 
+              <ion-col size="7" ><img class="right_logo" src="../../../assets/second_logo.png"/></ion-col>
+            </div>
+          </div>
+         </div>
+   
+      </div>
+    </div>
+
+    
+    <div class="container_view">
+      <div class="exapandable_view"  (click)="toggle()">
+          <ion-row>
+              <ion-col size="9">Digitial Card</ion-col>
+              <ion-col size="1" offset="2"><ion-icon name="{{icon_name}}"></ion-icon></ion-col>
+          </ion-row>
+      </div>
+   
+       <ng-container *ngIf="show_container_one; ">
+           <div  class="expandable_container">
+            <ion-grid>
+     
+              <ion-row>
+                <ion-card (click)="back_side()" class="v_card">
+                  <ion-row class="card_overlay">
+                    <ion-col><img class="qr_code" src="{{this.pqr}}"></ion-col>
+                    <ion-col>
+                     <div class="more_info">
+                       <div>
+            
+                         <ion-col size="7" ><img class="card_logo" src="../../../assets/second_logo.png"/></ion-col>
+                       </div>
+                     </div>
+      
+                     <div class="name_info">
+                       <div>
+            
+                         <ion-col size="7" ><label>{{pname}}</label>
+                       
+                        </ion-col>
+                       </div>
+                       <label class="valid_thr">VALID THRU <ion-label class="mem_values"><ion-datetime style="display: table-row-group;" value="{{pexpdate}}" display-timezone="utc"></ion-datetime></ion-label></label>
+                     </div>
+      
+                    </ion-col>
+                    
+                  </ion-row>
+                </ion-card>
+                <ion-card  (click)="front_side()" class="front_side"  >
+                  <ion-row class="card_overlay" style="    height: 179px;
+                  ">
+                    <div class="black_strip"></div>
+                    <ion-row><ion-label class="card_text">This card is a prepaid foot court card to be swiped of the time of the payment
+                        <br> This card can be recharged to any amount <br>
+                        A security amount of Rs.30/ - is charged
+      
+                    </ion-label></ion-row> 
+                    
+                  </ion-row>
+                </ion-card>
+             </ion-row>
+          </ion-grid>
+           </div>     
+       </ng-container>
+
+       <div class="exapandable_view"  (click)="toggle2()">
+           <ion-row>
+               <ion-col size="9">Personal Information </ion-col>
+               <ion-col size="1" offset="2"><ion-icon name="{{icon_name_two}}"></ion-icon></ion-col>
+           </ion-row>
+       </div>
+    
+        <ng-container *ngIf="show_container_two; ">
+            <div  class="expandable_container">
+             <ion-item>
+           
+                <ion-col>
+                  <label class="p_title">First Name</label><br>
+                  <label class="p_value">{{pname}}</label>
+                </ion-col>
+                <ion-col>
+                  <label class="p_title">Last Name</label><br>
+                  <label class="p_value">Ustinaska</label>
+                </ion-col>
+              </ion-item>
+             
+              
+
+              <ion-item>
+                <ion-col>
+                  <label class="p_title">Date of Birth</label><br>
+                  <label class="p_value">28/03/1992</label>
+                </ion-col>
+                <ion-col>
+                  <label class="p_title">Documents Submited</label><br>
+                  <label class="p_value">Passport</label>
+                </ion-col>
+              </ion-item>
+
+              <ion-item>
+                <ion-col>
+                  <label class="p_title">Unit No</label><br>
+                  <label class="p_value">1005/ABCD</label>
+                </ion-col>
+                <ion-col>
+                  <label class="p_title">Registerd Phone no</label><br>
+                  <label class="p_value">99999999</label>
+                </ion-col>
+              </ion-item>
+
+              <ion-item>
+                <ion-col>
+                  <label class="p_title">Email</label><br>
+                  <label class="p_value">{{pemail}}</label>
+                </ion-col>
+               
+              </ion-item>
+
+            </div>     
+        </ng-container>
+
+
+        <div class="exapandable_view"  (click)="toggle3()">
+          <ion-row>
+              <ion-col size="9">Membership Information </ion-col>
+              <ion-col size="1" offset="2"><ion-icon name="{{icon_name_three}}"></ion-icon></ion-col>
+          </ion-row>
+      </div>
+   
+       <ng-container *ngIf="show_container_three; ">
+           <div  class="expandable_container">
+            
+            <ion-item>
+              <ion-col>
+                <label class="p_title">Current Membership Tier</label><br>
+                <label class="p_value">{{ptype}}</label>
+              </ion-col>
+             
+            </ion-item>
+
+            <ion-item>
+              <ion-col>
+                <label class="p_title">Membership Start Date</label><br>
+                <label class="p_value"><ion-datetime style="display: table-row-group;" value="{{pmemberstart}}" display-timezone="utc"></ion-datetime></label>
+              </ion-col>
+             
+            </ion-item>
+
+            <ion-item>
+              <ion-col>
+                <label class="p_title">Membership End Date</label><br>
+                <label class="p_value"><ion-datetime style="display: table-row-group;" value="{{pmemberend}}" display-timezone="utc"></ion-datetime></label>
+              </ion-col>
+             
+            </ion-item>
+           </div>     
+       </ng-container>
+
+       <div class="exapandable_view"  (click)="toggle4()">
+        <ion-row>
+            <ion-col size="9">Activity History </ion-col>
+            <ion-col size="1" offset="2"><ion-icon name="{{icon_name_four}}"></ion-icon></ion-col>
+        </ion-row>
+    </div>
+ 
+     <ng-container *ngIf="show_container_four; ">
+         <div  class="expandable_container">
+
+          
+          <ion-item>
+            <ion-row>
+              <ion-col>
+                <label class="p_title">Membership Tier</label><br>
+                <label class="p_value">Diamand</label>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <label class="p_title">Payment Date</label><br>
+              <label class="p_value">25-6-2021</label>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <label class="p_title">Paid Amount</label><br>
+            <label class="p_value">$2000</label>
+          </ion-col>
+      </ion-row>
+          </ion-item>
+         </div>     
+     </ng-container>
+         
+          
+   </div>
+   <div class="spacer"></div>
+  
+  
+  </ion-content>

@@ -1,0 +1,80 @@
+
+  <ion-content [fullscreen]="true">
+
+    <div class="header_banner">
+      <div class="header_overlay">
+         <div class="icon_conatiner">
+
+          <ion-row>
+           <ion-col size="2" ><ion-back-button defaultHref="tablinks"></ion-back-button></ion-col>
+           <ion-col size="1" offset="7"><ion-icon  class="_cart_icon" name="bag-handle-outline"></ion-icon></ion-col>
+           <ion-col size="2" ><ion-menu-button item-right class="_menu_icon"></ion-menu-button></ion-col>
+          
+          </ion-row>
+          <ion-row><ion-label class="header_title">Digital Wallet</ion-label></ion-row>
+         </div>
+   
+      </div>
+    </div>
+
+    <ion-grid>
+     
+        <ion-row>
+          <ion-card (click)="back_side()" class="v_card">
+            <ion-row class="card_overlay">
+              <ion-col><img class="qr_code" src="../../../assets/qr.png"></ion-col>
+              <ion-col>
+               <div class="more_info">
+                 <div>
+      
+                   <ion-col size="7" ><img class="card_logo" src="../../../assets/second_logo.png"/></ion-col>
+                 </div>
+               </div>
+
+               <div class="name_info">
+                 <div>
+      
+                   <ion-col size="7" ><label>Maria Ustianska</label></ion-col>
+                 </div>
+                 <label class="valid_thr">VALID THRU 05/22</label>
+               </div>
+
+              </ion-col>
+              
+            </ion-row>
+          </ion-card>
+          <ion-card  (click)="front_side()" class="front_side" [ngClass]="(this.open_back == true) ? 'v_card' : '_hide' " >
+            <ion-row class="card_overlay" style="    height: 179px;
+            ">
+              <div class="black_strip"></div>
+              <ion-row><ion-label class="card_text">This card is a prepaid foot court card to be swiped of the time of the payment
+                  <br> This card can be recharged to any amount <br>
+                  A security amount of Rs.30/ - is charged
+
+              </ion-label></ion-row> 
+              
+            </ion-row>
+          </ion-card>
+       </ion-row>
+    </ion-grid>
+
+    <ion-card class="welcome-card" style="display: none;">
+      <p>
+        <ion-button (click)="startNFC()">start NFC readermode</ion-button>
+      </p>
+      <p>
+        <ion-button (click)="startNFCListener()">start NFC listener</ion-button>
+      </p>
+      <p>
+        <ion-button (click)="startInterval()">start Interval</ion-button>
+      </p>
+      <p>
+        <ion-button (click)="doNothing()">do nothing</ion-button>
+      </p>
+      <p>
+        {{nfcReading}}
+        {{nfcTag}}
+        <ion-spinner *ngIf="nfcReading"> </ion-spinner>
+      </p>
+    </ion-card>
+</ion-content>

@@ -1,0 +1,114 @@
+.header_banner{width: 100%;height: 130px; background:url(../../../assets/gym_booking.jpg);--background-repeat: no-repeat;
+    --background-size: cover;  background-size: cover;}
+  .header_overlay{background:#20978f69;height: 130px;}
+  .icon_conatiner{padding-top: 10px;}
+  ion-back-button{
+    --color: white;
+  }
+  .header_title{color: #fff;text-align: center;width: 100%;font-family:Poppins-Medium !important;font-size: 18px;;}
+  ._menu_icon{color: #fff;margin: 0px 0px;font-size: 30px;}   
+  ._cart_icon{color: #fff;margin: 8px 0px;font-size: 26px;margin-left: 10px;}
+  .right_logo{width: 30px;height: 35px;float: right;margin-top: -19px;margin-right: 15px;}
+  .list_row{padding: 5px;margin: 10px 5px 10px 5px; box-shadow: 0 0px 4px 1px #ddd;border-radius: 5px;background: #d3e2e5;}
+  .list_row_even{padding: 5px;margin: 10px 5px 10px 5px; box-shadow: 0 0px 4px 1px #ddd;border-radius: 5px;background: #e8e8e8;padding: 5px;}
+.time_la{    
+  color: #76a1aa;
+  font-size: 15px;
+  text-align: CENTER;
+  background: #fff;
+  padding: 15px;
+  border-radius: 5px;;
+  margin: 10px;
+  line-height: 16px;
+  font-family:Poppins-Medium !important;
+  width: 100%;
+   }
+
+   .time_la_even{    
+    color: #76a1aa;
+    font-size: 15px;
+    text-align: CENTER;
+    background: #ddd;
+    padding: 15px;
+    border-radius: 5px;;
+    margin: 10px;
+    line-height: 16px;
+    font-family:Poppins-Medium !important;
+    width: 100%;
+     }
+   .time_la_icon{ 
+    color: #76a1aa;
+    font-size: 25px;
+    text-align: CENTER;
+    width: 100%;
+ } 
+.seats
+{
+  font-size: 10px;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  background: #20988f;
+  margin-right: 6px;
+  text-align: center;
+  align-self: center;
+}
+
+.p_title{margin: 5px; width: 100%; font-size: 13px; color: #63949a;font-family:Poppins-Medium !important; }
+.p_sub_title{margin:-5px 0px 0px 3px ; width: 100%; font-size: 11px; color: rgb(112, 111, 111);margin-bottom: 3px;font-family:Poppins-Medium !important; }
+
+  .list_container{margin: 5px;}
+  .list_row{margin: 10px 5px 10px 5px; box-shadow: 0 0px 4px 1px #ddd;border-radius: 5px;}
+  .img_icon{width: 100px;height: 100px;margin-top: 20px;margin-left: 5px;}
+  
+  .card_content{margin: 5px;}
+  .arrow_right{color: rgba(80, 79, 79, 0.867);}
+  .change-address-shipping-modal{
+    --height:60%;
+    align-items: flex-end;
+  }
+  .month_name{font-family:Poppins-Medium !important;    margin-left: 5px;}
+  .date_box{margin-left: 8px;
+    margin-top: 5px;}
+  .date_conatiner{  
+      text-align: center;
+    width: 58px;
+    height: 58px;
+    padding: 10px;
+    font-family:Poppins-Medium !important;
+    font-size: 14px;
+    line-height: 18px;
+    border: 2px solid #ddd;
+    display: block;
+    border-radius: 5px;}
+
+    .date_conatiner_active{  
+        text-align: center;
+      width: 58px;
+      height: 58px;
+      color: #fff;
+      background: #047afe;
+      padding: 10px;
+      font-family:Poppins-Medium !important;
+      font-size: 14px;
+      line-height: 18px;
+      border: 2px solid #ddd;
+      display: block;
+      border-radius: 5px;}
+      .time_container{margin: 10px;}
+      .time_slot{text-align: center; background: #75b1b9;color: white;font-family:Poppins-Medium !important;margin: 10px;}
+      .time_slot_active{text-align: center; background: #20978F;color: white;font-family:Poppins-Medium !important;margin: 10px;}
+      .login_button{  
+        margin: 0px auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        --background-activated:#20978F;
+        display: block;
+        --background: #75b1b9;
+        font-size: 18px;
+        --border-radius: 5px;
+        height: 2.5em;}
+        .no_seats_lable  {
+          text-align: center;
+          width: 100%;
+      } 

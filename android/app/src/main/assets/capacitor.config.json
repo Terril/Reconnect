@@ -1,0 +1,6 @@
+{
+	"appId": "com.example.app",
+	"appName": "Reconnect",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

@@ -1,0 +1,110 @@
+
+<ion-content [fullscreen]="true" >
+    <div class="header_banner">
+      <div class="header_overlay">
+        
+         <div class="icon_conatiner" slot="end">
+           <ion-row>  
+            <ion-icon  class="_cart_icon" (click)="this.myapp.cart()"  name="bag-handle-outline"></ion-icon>
+             <ion-menu-button  class="_menu_icon"></ion-menu-button>
+           </ion-row>
+        
+         </div>
+       <div class="name_container" (click)="profile()">
+         <ion-row><ion-label>Hello</ion-label></ion-row>
+         <ion-row><ion-label style="font-weight: bolder;">{{member_name}}!</ion-label></ion-row>
+       </div>
+
+       <div class="membership_container">
+        <ion-row class="_row">
+            <ion-col size="2.5"><ion-label class="mem_title">Membership</ion-label></ion-col>
+            <ion-col size="5"><ion-label class="mem_values">Diamand</ion-label></ion-col>
+          </ion-row>
+        <ion-row class="_row"> 
+          <ion-col size="2"><ion-label class="mem_title">Valid Until</ion-label></ion-col>
+          <ion-col size="5"><ion-label class="mem_values"><ion-datetime style="display: table-row-group;" value="{{exp_date}}" display-timezone="utc"></ion-datetime></ion-label></ion-col>
+        </ion-row>
+      </div>
+
+      <div class="more_info">
+        <div>
+          <ion-col size="1"><ion-label class="mem_title">Tap to see more information about membership</ion-label></ion-col>
+          <ion-col size="7" ><img class="right_logo" src="../../../assets/second_logo.png"/></ion-col>
+        </div>
+      </div>
+          
+   
+      </div>
+    </div>
+        
+    <ion-grid>
+      
+       <ion-row>
+        <ion-col>
+          <ion-card class="day_passess" (click)="pasess()">
+              <ion-card-content class="black_layer">
+                <h1 class="card_lable" >Day</h1>
+                <h1 class="card_lable" >Pasees</h1>
+              </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col>  
+          <ion-card class="gym_booking" (click)="gym_booking()">
+            <ion-card-content class="black_layer">
+              <h1 class="card_lable" >Gym</h1>
+              <h1 class="card_lable" >Booking</h1>
+            </ion-card-content>
+        </ion-card></ion-col>
+       </ion-row>
+
+       <ion-row>
+        <ion-col>
+          <ion-card class="class_booking" (click)="class_listing() " >
+              <ion-card-content class="black_layer">
+                <h1 class="card_lable" >Class</h1>
+                <h1 class="card_lable" >Booking</h1>
+              </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col>  
+          <ion-card class="vouchers" (click)="offers() " >
+            <ion-card-content class="black_layer" >
+              <h1 class="card_lable" >My</h1>
+              <h1 class="card_lable" >Vouchers</h1>
+            </ion-card-content>
+        </ion-card></ion-col>
+       </ion-row>
+
+       <ion-row>
+        <ion-col>
+          <ion-card class="partner_offers" (click)="partner_offers()">
+              <ion-card-content class="black_layer"> 
+                <h1 class="card_lable" >Partner </h1>
+                <h1 class="card_lable" >Offers</h1>
+              </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col>  
+          <ion-card class="promotion" (click)="promotions()">
+            <ion-card-content class="black_layer"> 
+              <h1 class="card_lable" >Hotel </h1>
+              <h1 class="card_lable">Promotions</h1>
+            </ion-card-content>
+        </ion-card></ion-col>
+       </ion-row>
+
+       <ion-row>
+       
+        <ion-col>  
+          <ion-card class="class_booking">
+            <ion-card-content class="black_layer" (click)="bookings()"> 
+              <h1 class="card_lable" >My </h1>
+              <h1 class="card_lable" >Schedule</h1>
+            </ion-card-content>
+        </ion-card></ion-col>
+       </ion-row>
+    
+      </ion-grid>  
+        
+    <div style="padding-bottom: 100px;" ></div>
+</ion-content>

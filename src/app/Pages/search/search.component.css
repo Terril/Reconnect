@@ -1,0 +1,11 @@
+.header_banner{width: 100%;height: 130px; background:url(../../../assets/gym_booking.jpg);--background-repeat: no-repeat;
+  --background-size: cover;  background-size: cover;}
+.header_overlay{background:#20978f69;height: 130px;}
+.icon_conatiner{padding-top: 10px;}
+ion-back-button{
+  --color: white;
+}
+.header_title{color: #fff;text-align: center;width: 100%;font-family:Poppins-Medium !important;font-size: 18px;;}
+._menu_icon{color: #fff;margin: 0px 0px;font-size: 30px;}   
+._cart_icon{color: #fff;margin: 8px 0px;font-size: 26px;margin-left: 10px;}
+.right_logo{width: 30px;height: 35px;float: right;margin-top: -19px;margin-right: 15px;}

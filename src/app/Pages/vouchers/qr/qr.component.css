@@ -1,0 +1,24 @@
+.qr_image
+{
+    width: 200px;
+    height: 200px;
+
+}
+.img_{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.button_container{
+    width: 80%;
+    margin: 0px auto;
+    margin-top: 50px;
+}
+
+.action_button_no{ color: #000; --background: #ddd;font-size: 18px;--border-radius: 6px;width: 200px; height:30px}
+.action_button_no:hover{color: #000; --background-hover: #ddd;}
+
+.action_button_yes{ color: #fff; --background: #28aebb;font-size: 18px;--border-radius: 6px;width: 200px; height:30px}
+.action_button_yes:hover{color: #fff; --background-hover: #28aebb;}
+.p_title{width: 100%; text-align: center; display: block;color: rgb(85, 83, 83); margin: 5px 0px; font-weight: 600;font-family: Poppins-Mediam!important;}
+.p_sub{width: 100%; text-align: center; display: block;color: rgb(85, 83, 83);font-size: 14px; margin-bottom: 10px;font-family: Poppins-Mediam!important;}

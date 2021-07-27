@@ -1,0 +1,27 @@
+install project 
+npm install 
+
+---------------------------------------------
+
+run project 
+ionic serve or ng serve
+
+------------------------------------------
+
+to build project
+
+ionic build 
+ionic build --prod
+
+
+-------------------
+
+refresh project files to android studio
+npx cap sync
+
+----------------------------------------------
+
+
+
+
+

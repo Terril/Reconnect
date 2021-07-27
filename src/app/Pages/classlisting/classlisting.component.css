@@ -1,0 +1,165 @@
+.header_banner{width: 100%;height: 130px; background:url(../../../assets/banner-bg.jpg);--background-repeat: no-repeat;
+    --background-size: cover;  background-size: cover;}
+  .header_overlay{background:#20978f69;height: 130px;}
+  .icon_conatiner{padding-top: 10px;}
+  ion-back-button{
+    --color: white;
+  }
+  .header_title{color: #fff;text-align: center;width: 100%;font-family:Poppins-Medium !important;font-size: 18px;;}
+  ._menu_icon{color: #fff;margin: 0px 0px;font-size: 30px;}   
+  ._cart_icon{color: #fff;margin: 8px 0px;font-size: 26px;margin-left: 10px;}
+  .right_logo{width: 30px;height: 35px;float: right;margin-top: -19px;margin-right: 15px;}
+.card_cantainer
+{
+  
+    display: block;
+    margin: 0px;
+    border-radius: 0px;
+    margin-top: 20px;
+
+}
+.container {    
+    height: 125px;
+    width: 125px;}
+.overlay
+{
+    background-color: #00000052;
+    height: 125px;
+    width: 125px;
+}
+.class_sliders{padding-left: 15px;}
+.card_lable
+{
+    color: #fff;
+    width: 100%;
+    margin: 0px auto;
+    margin-top: 46px;
+    width: 70px;
+    font-weight: 700;
+    display: block;
+    text-align: center;
+}
+.primary_category{margin-left: 12px;margin-right: 12px;}
+.time_name
+{
+    color: #868181;
+    margin-left: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 145px!important;
+}
+.active_class {
+    background: #20988f;
+    color: #fff;
+    margin-left: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 145px!important;
+}
+.home_label{    display: block;color: rgb(85, 83, 83); margin: 15px 0px 10px 17px;font-weight: 600;font-family: Georgia, 'Times New Roman', Times, serif;}
+.list_container{margin: 5px;}
+.list_row{padding: 5px;margin: 10px 5px 10px 5px; box-shadow: 0 0px 4px 1px #ddd;border-radius: 5px;background: #d3e2e5;}
+  .list_row_even{padding: 5px;margin: 10px 5px 10px 5px; box-shadow: 0 0px 4px 1px #ddd;border-radius: 5px;background: #e8e8e8;padding: 5px;}
+.time_la{    
+  color: #76a1aa;
+  font-size: 15px;
+  text-align: CENTER;
+  background: #fff;
+  padding: 15px;
+  border-radius: 5px;;
+  margin: 10px;
+  line-height: 16px;
+  font-family:Poppins-Medium !important;
+  width: 100%;
+   }
+
+   .time_la_even{    
+    color: #76a1aa;
+    font-size: 15px;
+    text-align: CENTER;
+    background: #ddd;
+    padding: 15px;
+    border-radius: 5px;;
+    margin: 10px;
+    line-height: 16px;
+    font-family:Poppins-Medium !important;
+    width: 100%;
+     }
+   .time_la_icon{ 
+    color: #76a1aa;
+    font-size: 25px;
+    text-align: CENTER;
+    width: 100%;
+ } 
+.seats
+{
+  font-size: 10px;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  background: #20988f;
+  margin-right: 6px;
+  text-align: center;
+  align-self: center;
+}
+
+.p_title{margin: 5px; width: 100%; font-size: 13px; color: #63949a;font-family:Poppins-Medium !important; }
+.p_sub_title{margin:-5px 0px 0px 3px ; width: 100%; font-size: 11px; color: rgb(112, 111, 111);margin-bottom: 3px;font-family:Poppins-Medium !important; }
+
+  .list_container{margin: 5px;}
+  .list_row{margin: 10px 5px 10px 5px; box-shadow: 0 0px 4px 1px #ddd;border-radius: 5px;}
+  .img_icon{width: 100px;height: 100px;margin-top: 20px;margin-left: 5px;}
+  
+  .card_content{margin: 5px;}
+  .arrow_right{color: rgba(80, 79, 79, 0.867);}
+  .change-address-shipping-modal{
+    --height:60%;
+    align-items: flex-end;
+  }
+  .month_name{font-family:Poppins-Medium !important;    margin-left: 5px;}
+  .date_box{margin-left: 8px;
+    margin-top: 5px;}
+  .date_conatiner{  
+      text-align: center;
+    width: 58px;
+    height: 58px;
+    padding: 10px;
+    font-family:Poppins-Medium !important;
+    font-size: 14px;
+    line-height: 18px;
+    border: 2px solid #ddd;
+    display: block;
+    border-radius: 5px;}
+
+    .date_conatiner_active{  
+        text-align: center;
+      width: 58px;
+      height: 58px;
+      color: #fff;
+      background: #047afe;
+      padding: 10px;
+      font-family:Poppins-Medium !important;
+      font-size: 14px;
+      line-height: 18px;
+      border: 2px solid #ddd;
+      display: block;
+      border-radius: 5px;}
+ 
+    ion-segment-button{
+        --indicator-box-shadow: transparent!important;
+        margin: 0;
+        --background:white!important;
+        --color:#000;
+        --background-checked: linear-gradient( #047afe, #047afe)!important;
+        --color-checked: white;
+        --indicator-color : transparent!important; /* this solution */
+  
+        }
+        
+        .arrow_right{margin-left: 5px;}
+
+

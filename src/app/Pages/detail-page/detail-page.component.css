@@ -1,0 +1,63 @@
+.header_image{height: 240px;position: absolute;width: 100%;}
+.app_toolbar{ --background: #20989000;}
+.bar_header {
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+}
+.info_icon
+{
+    color: #fff;
+    background: #20988f;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 21px;
+    margin-left: 10px;
+}
+.toolbar_buttons{color: #fff;
+    background: #20988f;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 21px;
+    margin-left: 10px;}
+ .container_box
+ {
+    height: 200px;
+    background: #fff;
+    position: relative;
+    bottom: 63px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+ }
+ .rating_star{color:#f9c011;font-size: 16px;margin-left: 5px;margin-top: 5px;margin-bottom: 5px;}
+.rating_number{color: rgb(114, 112, 112); font-size: 15px;font-weight: bold;margin-left: 5px;margin-top: 5px;}
+.p_price{font-size: 18px;margin-left: 5px;margin-top: 5px;margin-bottom: 5px;font-family: Poppins-Mediam!important;}  
+.primary_lables{margin-top: 30px;} 
+.p_location{font-size: 14px;margin-left: 4px;margin-top: 3px;margin-bottom: 3px;color: gray;}
+.p_title{margin: 5px; width: 100%; font-size: 18px; color: rgb(85, 83, 83);font-weight: 600;font-family: Poppins-Mediam!important;}
+.p_time{font-size: 14px;margin-left: 5px;margin-top: 3px;font-family: Poppins-Mediam!important;}
+.divder{height: 1px;background-color:#ddd;margin-top: 10px;}
+.featured_lable{    padding: 5px;
+    background: #28aebb;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 50px;
+    margin-top: 6px;
+    display: block;
+    text-align: center;}
+    .detail_container{margin: 10px;}
+    .login_button{    width: 89%;
+        margin: 0px auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: block;
+        --background: #28aebb;
+        font-size: 18px;
+        --border-radius: 5px;
+        height: 2.5em;}
+.login_button:hover{--background-hover: #28aebb;}
+.detail_icon{font-size: 14px;color:#28aebb;margin-right: 5px;}
+.detail_name{font-size: 14px; color: rgb(85, 83, 83);font-family: Poppins-Mediam!important;}    
+.detail_value{float: right;font-size: 14px;color: rgb(85, 83, 83);font-family: Poppins-Mediam!important;}
+.bottom_text{color: #28aebb;font-family: Poppins-Mediam!important;margin-left: 20px;}  

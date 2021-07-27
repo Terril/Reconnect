@@ -1,0 +1,205 @@
+
+<ion-header>
+  <ion-toolbar class="app_toolbar">
+    <ion-buttons slot="start">
+      <ion-menu-button class="_menu_icon"></ion-menu-button>  <!-- see how there are no complicated things here -->
+    </ion-buttons>
+    <ion-buttons slot="primary">
+ 
+        <div class="ion-activatable toolbar_buttons">
+            <ion-icon class="cart_icon" name="notifications-outline"></ion-icon>
+            <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+          </div>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+        <div class="ion-activatable toolbar_buttons">
+            <ion-icon class="cart_icon" name="cart-outline"></ion-icon>
+            <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+          </div>
+    </ion-buttons>
+   
+    <ion-title class="app_title">Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  
+<ion-content [fullscreen]="true" >
+    <div class="header_banner">
+    <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
+              (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
+              <ion-slide *ngIf="!data">
+                <ion-skeleton-text style="height: 200px;" animated></ion-skeleton-text>
+              </ion-slide>
+              <ion-slide *ngIf="data">
+   
+                <img src="https://www.ogscapital.com/wp-content/uploads/2013/08/gym1-e1546521365709.jpg">
+            
+              </ion-slide>
+              <ion-slide *ngIf="data">
+                <img class="img_placeholder" src="https://www.ogscapital.com/wp-content/uploads/2013/08/gym2-e1546521505489.jpg">
+              </ion-slide>
+              <ion-slide *ngIf="data">
+                <img class="img_placeholder" src="https://upmetrics.co/assets/media/gym-business-plan.jpg">
+              </ion-slide>
+       
+            </ion-slides>
+        </div>
+        
+        <ion-row *ngIf="!data" >
+
+
+          <ion-slides class="primary_category"  [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
+        
+            <ion-slide   ngIfThen *ngFor="let card of [0,1,2,3,4,5,6] "  class="primary_category_list">
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-slide>
+          
+          
+          </ion-slides>
+          
+        </ion-row>
+        <ion-row *ngIf="data">
+        <ion-slides class="primary_category"  [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
+        
+            <ion-slide (click)="category_listing()"  ngIfThen *ngFor="let card of [0,1,2,3,4,5,6] "  class="primary_category_list">
+              <ion-col size=1>
+                <ion-icon class="primary_category_list_icon" name="barbell-outline"></ion-icon>
+              </ion-col>
+              <ion-col size=9>
+              <label class="primary_category_list_title">Gym</label>
+              </ion-col>
+            </ion-slide>
+          
+          
+          </ion-slides>
+    </ion-row>
+
+ 
+
+      <ion-label *ngIf="data" class="home_label">Featured</ion-label>  
+      <ion-row *ngIf="!data" >
+        <ion-skeleton-text style="height: 200px;margin-left: 10px;margin-right: 10px;" animated></ion-skeleton-text>
+      </ion-row>
+      <ion-slides (click)="booking()" *ngIf="data" [options]="slideOptsThumbs" >
+        <ion-slide>
+          <ion-card class="ion-text-start">
+            <img src="https://upmetrics.co/assets/media/gym-business-plan.jpg">
+            <ion-card-content class="ion-no-padding card_content">
+                <ion-row><label class="p_title">Fit and Lift Gym Center</label></ion-row>
+                <ion-row> <label class="p_sub_title">Marcus</label></ion-row>
+                <ion-row> <label class="p_location"><ion-icon name="location-outline"></ion-icon>New Daily, India</label></ion-row>
+                <ion-row> <label class="p_price">$4000.00</label></ion-row>
+                <ion-row> <label class="p_time"><ion-icon name="calendar-number-outline"></ion-icon> Monday - Sunday 7AM - 8PM</label></ion-row>
+                <ion-row><ion-icon class="rating_star" *ngFor="let item of list;let i = index" [name]="condition <= i? 'star-outline' :'star' ">
+                </ion-icon> <label class="rating_number">2.2</label></ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card class="ion-text-start">
+            <img src="https://upmetrics.co/assets/media/gym-business-plan.jpg">
+            <ion-card-content class="ion-no-padding card_content">
+                <ion-row><label class="p_title">Fit and Lift Gym Center</label></ion-row>
+                <ion-row> <label class="p_sub_title">Marcus</label></ion-row>
+                <ion-row> <label class="p_location"><ion-icon name="location-outline"></ion-icon>New Daily, India</label></ion-row>
+                <ion-row> <label class="p_price">$4000.00</label></ion-row>
+                <ion-row> <label class="p_time"><ion-icon name="calendar-number-outline"></ion-icon> Monday - Sunday 7AM - 8PM</label></ion-row>
+                <ion-row><ion-icon class="rating_star" *ngFor="let item of list;let i = index" [name]="condition <= i? 'star-outline' :'star' ">
+                </ion-icon> <label class="rating_number">2.2</label></ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card class="ion-text-start">
+            <img src="https://upmetrics.co/assets/media/gym-business-plan.jpg">
+            <ion-card-content class="ion-no-padding card_content">
+                <ion-row><label class="p_title">Fit and Lift Gym Center</label></ion-row>
+                <ion-row> <label class="p_sub_title">Marcus</label></ion-row>
+                <ion-row> <label class="p_location"><ion-icon name="location-outline"></ion-icon>New Daily, India</label></ion-row>
+                <ion-row> <label class="p_price">$4000.00</label></ion-row>
+                <ion-row> <label class="p_time"><ion-icon name="calendar-number-outline"></ion-icon> Monday - Sunday 7AM - 8PM</label></ion-row>
+                <ion-row><ion-icon class="rating_star" *ngFor="let item of list;let i = index" [name]="condition <= i? 'star-outline' :'star' ">
+                </ion-icon> <label class="rating_number">2.2</label></ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+            <ion-card class="ion-text-start">
+              <img src="https://upmetrics.co/assets/media/gym-business-plan.jpg">
+              <ion-card-content class="ion-no-padding card_content">
+                <ion-row><label class="p_title">Fit and Lift Gym Center</label></ion-row>
+                <ion-row> <label class="p_sub_title">Marcus</label></ion-row>
+                <ion-row> <label class="p_location"><ion-icon name="location-outline"></ion-icon>New Daily, India</label></ion-row>
+                <ion-row> <label class="p_price">$4000.00</label></ion-row>
+                <ion-row> <label class="p_time"><ion-icon name="calendar-number-outline"></ion-icon> Monday - Sunday 7AM - 8PM</label></ion-row>
+                <ion-row><ion-icon class="rating_star" *ngFor="let item of list;let i = index" [name]="condition <= i? 'star-outline' :'star' ">
+                </ion-icon> <label class="rating_number">2.2</label></ion-row>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+      </ion-slides>
+      
+      <ion-row *ngIf="!data" >
+        <ion-skeleton-text style="height: 200px;margin-left: 10px;margin-right: 10px;" animated></ion-skeleton-text>
+      </ion-row>
+      <ion-label *ngIf="data" class="home_label">Recommend for you</ion-label>  
+      <ion-slides  (click)="booking()" *ngIf="data" [options]="slideOptsThumbs" >
+        <ion-slide>
+          <ion-card  class="ion-text-start">
+            <img src="https://upmetrics.co/assets/media/gym-business-plan.jpg">
+            <ion-card-content class="ion-no-padding card_content">
+                <ion-row><label class="p_title">Fit and Lift Gym Center</label></ion-row>
+                <ion-row> <label class="p_sub_title">Marcus</label></ion-row>
+                <ion-row> <label class="p_location"><ion-icon name="location-outline"></ion-icon>New Daily, India</label></ion-row>
+                <ion-row> <label class="p_price">$4000.00</label></ion-row>
+                <ion-row> <label class="p_time"><ion-icon name="calendar-number-outline"></ion-icon> Monday - Sunday 7AM - 8PM</label></ion-row>
+                <ion-row><ion-icon class="rating_star" *ngFor="let item of list;let i = index" [name]="condition <= i? 'star-outline' :'star' ">
+                </ion-icon> <label class="rating_number">2.2</label></ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card class="ion-text-start">
+            <img src="https://upmetrics.co/assets/media/gym-business-plan.jpg">
+            <ion-card-content class="ion-no-padding card_content">
+                <ion-row><label class="p_title">Fit and Lift Gym Center</label></ion-row>
+                <ion-row> <label class="p_sub_title">Marcus</label></ion-row>
+                <ion-row> <label class="p_location"><ion-icon name="location-outline"></ion-icon>New Daily, India</label></ion-row>
+                <ion-row> <label class="p_price">$4000.00</label></ion-row>
+                <ion-row> <label class="p_time"><ion-icon name="calendar-number-outline"></ion-icon> Monday - Sunday 7AM - 8PM</label></ion-row>
+                <ion-row><ion-icon class="rating_star" *ngFor="let item of list;let i = index" [name]="condition <= i? 'star-outline' :'star' ">
+                </ion-icon> <label class="rating_number">2.2</label></ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card class="ion-text-start">
+            <img src="https://upmetrics.co/assets/media/gym-business-plan.jpg">
+            <ion-card-content class="ion-no-padding card_content">
+                <ion-row><label class="p_title">Fit and Lift Gym Center</label></ion-row>
+                <ion-row> <label class="p_sub_title">Marcus</label></ion-row>
+                <ion-row> <label class="p_location"><ion-icon name="location-outline"></ion-icon>New Daily, India</label></ion-row>
+                <ion-row> <label class="p_price">$4000.00</label></ion-row>
+                <ion-row> <label class="p_time"><ion-icon name="calendar-number-outline"></ion-icon> Monday - Sunday 7AM - 8PM</label></ion-row>
+                <ion-row><ion-icon class="rating_star" *ngFor="let item of list;let i = index" [name]="condition <= i? 'star-outline' :'star' ">
+                </ion-icon> <label class="rating_number">2.2</label></ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+            <ion-card class="ion-text-start">
+              <img src="https://upmetrics.co/assets/media/gym-business-plan.jpg">
+              <ion-card-content class="ion-no-padding card_content">
+                <ion-row><label class="p_title">Fit and Lift Gym Center</label></ion-row>
+                <ion-row> <label class="p_sub_title">Marcus</label></ion-row>
+                <ion-row> <label class="p_location"><ion-icon name="location-outline"></ion-icon>New Daily, India</label></ion-row>
+                <ion-row> <label class="p_price">$4000.00</label></ion-row>
+                <ion-row> <label class="p_time"><ion-icon name="calendar-number-outline"></ion-icon> Monday - Sunday 7AM - 8PM</label></ion-row>
+                <ion-row><ion-icon class="rating_star" *ngFor="let item of list;let i = index" [name]="condition <= i? 'star-outline' :'star' ">
+                </ion-icon> <label class="rating_number">2.2</label></ion-row>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+      </ion-slides>
+      <div style="padding-bottom: 100px;" ></div>
+</ion-content>

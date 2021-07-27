@@ -1,0 +1,33 @@
+.header_banner{width: 100%;height: 130px; background:url(../../../assets/banner-bg.jpg);--background-repeat: no-repeat;
+    --background-size: cover;  background-size: cover;}
+  .header_overlay{background:#20978f69;height: 130px;}
+  .icon_conatiner{padding-top: 10px;}
+  ion-back-button{
+    --color: white;
+  }
+  .header_title{color: #fff;text-align: center;width: 100%;font-family:Poppins-Medium !important;font-size: 18px;;}
+  ._menu_icon{color: #fff;margin: 0px 0px;font-size: 30px;}   
+  ._cart_icon{color: #fff;margin: 8px 0px;font-size: 26px;margin-left: 10px;}
+  .right_logo{width: 30px;height: 35px;float: right;margin-top: -19px;margin-right: 15px;}
+  .list_container{margin: 5px;}
+.list_row{margin: 10px 5px 10px 5px; box-shadow: 0 0px 4px 1px #ddd;border-radius: 5px;}
+.img_icon{width: 100px;height: 100px;margin-top: 20px;margin-left: 5px;}
+.p_title{margin-left: 11px; width: 100%; font-size: 17px; color:#fff;font-family:Poppins-Medium !important;}
+.p_sub_title{margin-left: 11px; width: 100%; font-size: 13px; color:#fff;margin-bottom: 3px;font-family:Poppins-Medium !important;}
+.p_location{font-size: 13px;margin-left: 4px;margin-top: 3px;margin-bottom: 3px;}
+.p_location ion-icon{color: rgb(100, 152, 231);margin-right: 5px;}
+.p_price{font-size: 13px;margin-left: 5px;margin-top: 3px;margin-bottom: 3px;}
+.p_time{font-size: 13px;margin-left: 5px;margin-top: 3px; }
+.card_content{margin: 5px;}
+.rating_star{color:#fbff12;font-size: 13px;margin-left: 5px;padding: 2px;}
+.rating_number{ margin-left: 10px;border: 1px solid #ddd; color:#fff; font-size: 13px;padding: 2px;}
+.hotel_text{position: absolute;z-index: 999;border: 0px;top: 124px;}
+.item_container{position: absolute;
+    z-index: 999;
+    border: 0px;
+    top: 5px;
+    bottom: 0px;
+    width: 97%;
+    height: 200px;
+    background: #0000007d;}
+    .rating_conainer{margin-left: 5px;display: none;}

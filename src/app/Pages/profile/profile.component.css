@@ -1,0 +1,54 @@
+.header_banner{width: 100%;height: 220px; background:url(../../../assets/banner-bg.jpg);--background-repeat: no-repeat;
+  --background-size: cover;  background-size: cover;}
+.header_overlay{background:#20978f69;height: 200px;}
+.icon_conatiner{padding-top: 10px;}
+ion-back-button{
+  --color: white;
+}
+.header_title{color: #fff;text-align: center;width: 100%;font-family:Poppins-Medium !important;font-size: 18px;;}
+._menu_icon{color: #fff;margin: 0px 0px;font-size: 30px;}   
+._cart_icon{color: #fff;margin: 8px 0px;font-size: 26px;margin-left: 10px;}
+.right_logo{width: 30px;height: 35px;float: right;margin-top: -30px;margin-right: 15px;}
+.container_view{margin: 10px;}
+.expandable_container{background: #fff;}
+.exapandable_view{background-color: #75b1b9;padding: 5px;width: 100%;color:#fff;font-family:Poppins-Medium !important;}
+.card_view{height: 100px;padding: 0px;margin: 0px;color: #fff;font-family:Poppins-Medium !important;}
+.card_lable_number{font-size: 22px;font-weight: bolder;}
+.card_lable_text{font-size: 15px;}
+.black_layer{padding: 0px;margin: 10px;}
+.card_lable_view{text-align: center;font-size: 9px;width: 100%;}
+._curve{    width: 25%;
+  margin: 0px auto;
+  text-align: center}
+.mem_title{text-align: center;width: 65%;background: #75b1b9;color:#fff;margin: 0px auto;padding: 5px;border-radius: 25px;margin-top: 10px;}
+.mem_title ion-label {font-size: 12px;}
+.v_card{width: 100%;height: auto;background:url(../../../assets/card.png);    background-size: cover;}
+.spacer{padding-bottom: 100px;}
+
+.card_logo{width: 30px;height: 35px;float: right;margin-right: 15px;margin-top: 10px;}
+.card_overlay{background: #22242821;}
+.valid_thr{font-family:Poppins-Light !important; font-size: 10px!important;}
+.name_info{position: absolute;
+  bottom: 29px;
+  text-align: right;
+  width: 100%;
+  right: 10px;
+  font-weight: bold;}
+  .p_title{font-size: 13px;}
+  .p_value{font-family:Poppins-Medium !important;}
+  .black_strip{width: 100%;height: 30px;background: #000;margin-top: 30px;}
+  .card_text{font-family:Poppins-Medium !important; padding: 10px;font-size: 10px;margin-top: 20px;}
+  .flipped {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+.front_side{display:none;}
+#myFileInput{
+  position: absolute;
+  opacity: 0;
+  left: 96px;
+  width: 50%;
+}
+  

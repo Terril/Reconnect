@@ -1,0 +1,83 @@
+
+  <ion-content [fullscreen]="true">
+
+    <div class="header_banner">
+      <div class="header_overlay">
+         <div class="icon_conatiner">
+
+          <ion-row>
+           <ion-col size="2" ><ion-back-button defaultHref="tablinks"></ion-back-button></ion-col>
+           <ion-col size="1" offset="7"><ion-icon  class="_cart_icon" name="bag-handle-outline"></ion-icon></ion-col>
+           <ion-col size="2" ><ion-menu-button item-right class="_menu_icon"></ion-menu-button></ion-col>
+          
+          </ion-row>
+          <ion-row><ion-label class="header_title">Class Booking</ion-label></ion-row>
+         </div>
+   
+      </div>
+    </div>
+   
+
+    <ion-slides  [options]="slideOptsThumbs"  class="class_sliders">
+      <ion-slide class="_card" *ngFor="let item of this.categories ; index as i "  (click)="load_clasess(i)">
+        <ion-card class="ion-text-start card_cantainer">
+
+       
+       
+          <ion-row  class="container"  style="background:url(../../../assets/card/card3.jpg);background-size: 100% 100%; ">
+          
+              <div class="overlay" >
+                  <ion-label class="card_lable">{{item.ClassType}}</ion-label>
+              </div>
+           </ion-row> 
+         
+          
+        </ion-card>
+      </ion-slide>
+
+      
+      
+      
+    </ion-slides>
+      
+    <div class="date_box">
+      <label class="month_name">{{this.monthname}}</label>
+    
+       <ion-item class="ion-no-padding"  lines="none">
+        <ion-slides pager="false" size="8" [options]="slideOptions" #slideWithNav>
+          <ion-slide   (click)="load_date(item)" style="width: 58px;
+          height: 58px;margin-right: 10px;" *ngFor="let item of this.allDays; " >
+            <ion-label  [ngClass]="item.date == this.selected_day ? 'date_conatiner_active' : 'date_conatiner'" >{{item.day_name}}<br>{{item.date}}</ion-label>
+          </ion-slide>
+        
+           </ion-slides>
+          <label class="arrow_right" (click)="next_month()" size="8"><ion-icon name="arrow-forward-outline"></ion-icon></label>
+        </ion-item>
+    
+    </div>
+    <ion-list class="list_container">
+     
+      <ion-row  (click)="booking()"  [ngClass]="(item % 2 ==0) ? 'list_row' : 'list_row_even' " *ngFor="let item of classListingDataHolder ">
+        
+        <ion-col size=3 class="time_la" >
+         <ion-row><ion-icon class="time_la_icon" name="time-outline"></ion-icon></ion-row>
+         <ion-row ><ion-label class="no_seats_lable"> {{item.ClassStartTime}} 00 AM</ion-label></ion-row>
+         
+        </ion-col>
+
+        <ion-col >
+         <ion-row><label class="p_title">{{item.ClassTitle}}</label></ion-row>
+         <ion-row> <label class="p_sub_title"><ion-icon name="person-circle-outline"></ion-icon> {{item.TrainerName}}</label></ion-row>
+         <ion-row> <label class="p_sub_title"><ion-icon name="location"></ion-icon> {{item.ClassTypeName}}</label></ion-row>
+       </ion-col>
+
+       <ion-col class="seats" size=3.2 >
+        
+        <ion-row ><ion-label class="no_seats_lable_res">{{item.AvailableSeats}} Seat Available</ion-label></ion-row>
+      
+     
+     </ion-col>
+      </ion-row>
+    </ion-list>
+   
+  </ion-content>

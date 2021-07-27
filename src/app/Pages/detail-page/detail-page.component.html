@@ -1,0 +1,85 @@
+<ion-header style="position: absolute;"  class="ion-no-border">
+   
+    <ion-toolbar class="app_toolbar">
+      <ion-buttons (click)="back()" slot="start">
+        <ion-icon class="toolbar_buttons" name="arrow-back"></ion-icon>
+    </ion-buttons>
+      
+    <ion-buttons slot="primary" style="display: none;" (click)="presentPopover($event)">
+        <div class="ion-activatable">
+            <ion-icon class="info_icon" name="ellipsis-vertical-outline"></ion-icon>
+            
+            <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+          </div>
+    </ion-buttons>
+     
+    </ion-toolbar>
+
+  </ion-header>
+<ion-content [fullscreen]="true">
+    <img  src="https://static.toiimg.com/thumb/msid-78118340,imgsize-896783,width-800,height-600,resizemode-75/78118340.jpg">
+    <div class="container_box">
+     
+     <ion-row>
+        <ion-col size=8 >
+            <ion-row><label class="p_title">Fit and Lift Gym Center</label></ion-row>
+            <ion-row><label class="p_location"><ion-icon name="location-outline"></ion-icon>New Daily, India</label></ion-row>
+        </ion-col> 
+        <ion-col size=3><label class="featured_lable">Featured</label></ion-col>
+        
+        </ion-row>
+        <ion-row>
+          <ion-col size=8 > <ion-row><ion-icon class="rating_star" *ngFor="let item of list;let i = index" [name]="condition <= i? 'star-outline' :'star' ">
+          </ion-icon> <label class="rating_number">2.2</label></ion-row></ion-col>
+          <ion-col size=4><label class="p_price">$4000.00</label></ion-col>
+   </ion-row>  
+     <ion-row class="divder"> </ion-row>
+     
+      
+      <div class="detail_container">
+        <ion-row>
+            <ion-col size=5><ion-label class="detail_name" ><ion-icon class="detail_icon" name="accessibility-outline"></ion-icon> Class Name</ion-label></ion-col> 
+            <ion-col size=6><ion-label class="detail_value" >Dumbel Crunch</ion-label></ion-col> 
+           </ion-row>
+           <ion-row>
+            <ion-col size=5><ion-label class="detail_name" ><ion-icon class="detail_icon" name="time-outline"></ion-icon> Time</ion-label></ion-col> 
+            <ion-col size=6><ion-label class="detail_value" >6:00 AM - 10:00 PM</ion-label></ion-col> 
+           </ion-row>
+           <ion-row>
+            <ion-col size=5><ion-label class="detail_name" ><ion-icon class="detail_icon" name="calendar-number-outline"></ion-icon> Days</ion-label></ion-col> 
+            <ion-col size=6><ion-label class="detail_value" >Monday To Sunday</ion-label></ion-col> 
+           </ion-row>
+           <ion-row>
+            <ion-col size=5><ion-label class="detail_name" ><ion-icon class="detail_icon" name="bag-check-outline"></ion-icon> Seats</ion-label></ion-col> 
+            <ion-col size=6><ion-label class="detail_value" >100</ion-label></ion-col> 
+           </ion-row>
+           <ion-row>
+            <ion-col size=5><ion-label class="detail_name" ><ion-icon class="detail_icon" name="checkmark-done-outline"></ion-icon> Booked</ion-label></ion-col> 
+            <ion-col size=6><ion-label class="detail_value" >60</ion-label></ion-col> 
+           </ion-row>
+           <ion-row>
+            <ion-col size=5><ion-label class="detail_name" ><ion-icon class="detail_icon" name="hourglass-outline"></ion-icon> Wating</ion-label></ion-col> 
+            <ion-col size=6><ion-label class="detail_value" >10</ion-label></ion-col> 
+           </ion-row>
+           <ion-row>
+            <ion-col size=5><ion-label class="detail_name" ><ion-icon class="detail_icon" name="thumbs-up-outline"></ion-icon> Available</ion-label></ion-col> 
+            <ion-col size=6><ion-label class="detail_value" >30</ion-label></ion-col> 
+           </ion-row>     
+      </div>      
+          
+      <ion-row class="divder"> </ion-row>
+            
+      <ion-button class="login_button" (click)="presentActionSheet()" >Book Now</ion-button>
+
+      <ion-row>
+        <ion-col ><label class="bottom_text" (click)="addCart()"  >Add to Cart</label> </ion-col>
+        <ion-col offset=2><label class="bottom_text" (click)="addwish()" >Add to Wishlist</label></ion-col>
+      </ion-row>
+            
+            
+      
+            
+   
+    </div>
+
+</ion-content>

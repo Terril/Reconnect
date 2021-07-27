@@ -1,0 +1,10 @@
+<div class="menu_container"> 
+    <ion-list>
+
+    <ion-item  *ngFor="let p of appPages; let i = index" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+      <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+      <ion-label>{{ p.title }}</ion-label>
+    </ion-item>
+
+</ion-list>
+  </div>
