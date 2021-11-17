@@ -15,21 +15,34 @@
           </ion-row>
           <div class="_curve">
             <ion-avatar style="width: 100px;
-            height: 100px">
+            height: 100px"  *ngIf="img">
+            <ion-icon  class="iconoverlay" name="camera" (click)="opncamera()"></ion-icon>
             <img class="profile_img" (click)="opncamera()" *ngIf="img" [src]="img"/> 
+           
             </ion-avatar>
+            <ion-avatar style="width: 100px;
+            height: 100px"  *ngIf="img==undefined">
+            <ion-icon  class="iconoverlay" name="camera" (click)="opncamera()" ></ion-icon>
+            <img class="profile_img" (click)="opncamera()" src="../../../assets/no_profile.jpg"/> 
+           
+            </ion-avatar>
+            
            
           </div>
+         
           <div class="mem_title">
             
-            <ion-label >UPLOAD PROFILE PITCUTRE<input type="file" id="myFileInput" value="" (change)="fileChange($event)"></ion-label>
+            <ion-label >UPLOAD PROFILE PICTURE<input type="file" id="myFileInput" value="" (change)="fileChange($event)"></ion-label>
           </div>
           
 
           <div class="more_info">
             <div>
  
-              <ion-col size="7" ><img class="right_logo" src="../../../assets/second_logo.png"/></ion-col>
+              <ion-col size="7" >
+              
+                <img  class="right_logo" src="../../../assets/second_logo.png"/>
+              </ion-col>
             </div>
           </div>
          </div>
@@ -41,7 +54,7 @@
     <div class="container_view">
       <div class="exapandable_view"  (click)="toggle()">
           <ion-row>
-              <ion-col size="9">Digitial Card</ion-col>
+              <ion-col size="9">Digital Card</ion-col>
               <ion-col size="1" offset="2"><ion-icon name="{{icon_name}}"></ion-icon></ion-col>
           </ion-row>
       </div>
@@ -52,7 +65,7 @@
      
               <ion-row>
                 <ion-card (click)="back_side()" class="v_card">
-                  <ion-row class="card_overlay">
+                  <ion-row class="card_overlay" [ngStyle]="{'background': getcolor()}">
                     <ion-col><img class="qr_code" src="{{this.pqr}}"></ion-col>
                     <ion-col>
                      <div class="more_info">
@@ -69,7 +82,7 @@
                        
                         </ion-col>
                        </div>
-                       <label class="valid_thr">VALID THRU <ion-label class="mem_values"><ion-datetime style="display: table-row-group;" value="{{pexpdate}}" display-timezone="utc"></ion-datetime></ion-label></label>
+                       <label class="valid_thr">VALID THRU <ion-label class="mem_values"><ion-datetime style="display: table-row-group; opacity: 1 !important;" value="{{pexpdate}}" display-timezone="utc" disabled></ion-datetime></ion-label></label>
                      </div>
       
                     </ion-col>
@@ -77,12 +90,9 @@
                   </ion-row>
                 </ion-card>
                 <ion-card  (click)="front_side()" class="front_side"  >
-                  <ion-row class="card_overlay" style="    height: 179px;
-                  ">
+                  <ion-row class="card_overlay" [ngClass]="TermsAndConditions==''?'terms':''" >
                     <div class="black_strip"></div>
-                    <ion-row><ion-label class="card_text">This card is a prepaid foot court card to be swiped of the time of the payment
-                        <br> This card can be recharged to any amount <br>
-                        A security amount of Rs.30/ - is charged
+                    <ion-row><ion-label class="card_text">{{TermsAndConditions}}
       
                     </ion-label></ion-row> 
                     
@@ -110,7 +120,7 @@
                 </ion-col>
                 <ion-col>
                   <label class="p_title">Last Name</label><br>
-                  <label class="p_value">Ustinaska</label>
+                  <label class="p_value">{{lname}}</label>
                 </ion-col>
               </ion-item>
              
@@ -119,22 +129,22 @@
               <ion-item>
                 <ion-col>
                   <label class="p_title">Date of Birth</label><br>
-                  <label class="p_value">28/03/1992</label>
+                  <label class="p_value">{{dob}}</label>
                 </ion-col>
                 <ion-col>
-                  <label class="p_title">Documents Submited</label><br>
-                  <label class="p_value">Passport</label>
+                  <label class="p_title">Documents Submitted</label><br>
+                  <label class="p_value">{{doc}}</label>
                 </ion-col>
               </ion-item>
 
               <ion-item>
                 <ion-col>
                   <label class="p_title">Unit No</label><br>
-                  <label class="p_value">1005/ABCD</label>
+                  <label class="p_value">{{unitno}}</label>
                 </ion-col>
                 <ion-col>
-                  <label class="p_title">Registerd Phone no</label><br>
-                  <label class="p_value">99999999</label>
+                  <label class="p_title">Registered Phone no</label><br>
+                  <label class="p_value">{{contact}}</label>
                 </ion-col>
               </ion-item>
 
@@ -171,7 +181,9 @@
             <ion-item>
               <ion-col>
                 <label class="p_title">Membership Start Date</label><br>
-                <label class="p_value"><ion-datetime style="display: table-row-group;" value="{{pmemberstart}}" display-timezone="utc"></ion-datetime></label>
+                <label class="p_value">
+                  <ion-datetime  style="display: table-row-group; opacity: 1 !important;" [(ngModel)]="pmemberstart" disabled  display-timezone="utc"></ion-datetime>
+                </label>
               </ion-col>
              
             </ion-item>
@@ -179,7 +191,7 @@
             <ion-item>
               <ion-col>
                 <label class="p_title">Membership End Date</label><br>
-                <label class="p_value"><ion-datetime style="display: table-row-group;" value="{{pmemberend}}" display-timezone="utc"></ion-datetime></label>
+                <label class="p_value"><ion-datetime  [(ngModel)]="pmemberend" style="display: table-row-group; opacity: 1 !important;" value="{{pmemberend}}" disabled  display-timezone="utc"></ion-datetime></label>
               </ion-col>
              
             </ion-item>
@@ -191,37 +203,126 @@
             <ion-col size="9">Activity History </ion-col>
             <ion-col size="1" offset="2"><ion-icon name="{{icon_name_four}}"></ion-icon></ion-col>
         </ion-row>
-    </div>
+        </div>
  
      <ng-container *ngIf="show_container_four; ">
          <div  class="expandable_container">
 
-          
-          <ion-item>
+          <!-- <ion-item >
             <ion-row>
               <ion-col>
                 <label class="p_title">Membership Tier</label><br>
-                <label class="p_value">Diamand</label>
+               
               </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
-              <label class="p_title">Payment Date</label><br>
-              <label class="p_value">25-6-2021</label>
+              <label class="p_title">Activity</label><br>
+              
             </ion-col>
         </ion-row>
-        <ion-row>
-          <ion-col>
-            <label class="p_title">Paid Amount</label><br>
-            <label class="p_value">$2000</label>
-          </ion-col>
-      </ion-row>
-          </ion-item>
+        </ion-item> -->
+        <table  class="tabless">
+          <tr class="trh" >
+            <th>Activity Date</th>
+            <th>Activity</th>
+          </tr>
+          <tr class="trw" *ngFor="let activity of activityList">
+            <td>
+              {{activity.transactionDate | date:'dd/MM/yyyy'}}
+            </td>
+            <td>
+              {{activity.Activity}}
+            </td>
+          </tr>
+          
+        </table>
+        <div style="text-align: center;">
+        <ion-button (click)="loadmore()" *ngIf="loadMore">Load More</ion-button>
+      </div>
+          <!-- <ion-item *ngFor="let activity of activityList">
+            <ion-row>
+              <ion-col>
+               
+                <label class="p_value">{{ptype}}</label>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              
+              <label class="p_value">{{activity.Activity}}</label>
+            </ion-col>
+        </ion-row>
+       
+          </ion-item> -->
          </div>     
      </ng-container>
+     <div class="exapandable_view"  (click)="toggle5()">
+      <ion-row>
+          <ion-col size="9">Transaction History </ion-col>
+          <ion-col size="1" offset="2"><ion-icon name="{{icon_name_five}}"></ion-icon></ion-col>
+      </ion-row>
+      </div>
+
+   <ng-container *ngIf="show_container_five; ">
+       <div  class="expandable_container">
+
+        <table class="tabless"> 
+          <tr class="trh" >
+            <th>Amount</th>
+            <th>Details</th>
+            <th>Date</th>
+          </tr>
+          <tr class="trw" *ngFor="let transction of transctionList">
+            <td>
+             AED {{transction.TotalPrice}}
+            </td>
+            <td>
+              {{transction.Passname}}
+            </td>
+            <td>
+              {{transction.transactionDate | date:'dd/MM/yyyy'}}
+            </td>
+           
+          </tr>
+          
+        </table>
+        <div style="text-align: center;">
+          <ion-button (click)="loadmoretrans()" *ngIf="loadMoretrans">Load More</ion-button>
+        </div>
+        <!-- <ion-item *ngFor="let transction of transctionList">
+       
+     
+      <ion-row>
+        <ion-col>
+          <label class="p_title">Paid Amount</label><br>
+          <label class="p_value">AED {{transction.TotalPrice}}</label>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <label class="p_title">Pass Name</label><br>
+        <label class="p_value">{{transction.Passname}}</label>
+      </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <label class="p_title">Branch Name</label><br>
+      <label class="p_value">{{transction.branchName}}</label>
+    </ion-col>
+</ion-row>
+        </ion-item> -->
+       </div>     
+   </ng-container>
          
           
    </div>
+   <ion-row style="width: 100%;text-align: center;">
+    <ion-col>
+   <button class="viewaggimentbtn" (click)="_viewaggriment()">View Agreement</button>
+  </ion-col>
+  </ion-row>
+  <a [href]="url" target="_blank" hidden id="aggriment"></a>
    <div class="spacer"></div>
   
   

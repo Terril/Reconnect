@@ -10,7 +10,8 @@
   ._cart_icon{color: #fff;margin: 8px 0px;font-size: 26px;margin-left: 10px;}
   .right_logo{width: 30px;height: 35px;float: right;margin-top: -19px;margin-right: 15px;}
   .container_view{margin: 10px;}
-  .expandable_container{background: #fff;}
+  .expandable_container{background: #fff;margin-top: 12px;
+   }
   .exapandable_view{background-color: #75b1b9;padding: 10px;width: 100%;color:#fff;font-family:Poppins-Medium !important;}
   .card_view{height: 100px;padding: 0px;margin: 0px;color: #fff;font-family:Poppins-Medium !important;}
   .card_lable_number{font-size: 22px;font-weight: bolder;}
@@ -31,3 +32,131 @@
         margin-top: 50px;
       }   
        
+      .time_la{    
+        color: #76a1aa;
+        font-size: 15px;
+        text-align: CENTER;
+        background: hsl(0deg 0% 95%);
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 12px;
+        line-height: 16px;
+        font-family:Poppins-Medium !important;
+        width: 100%;
+         }
+         .p_title{
+          font-size: 12px;
+          text-align: CENTER;
+          color:hsl(191deg 2% 54%);
+          font-family:Poppins-Medium !important;
+        }
+
+        .p_sub_title{
+          font-size: 10px;
+          text-align: CENTER;
+          color: hsl(225deg 2% 4%);
+          font-family:Poppins-Medium !important;
+        }
+
+        .p_sub_sub_title{
+          font-size: 10px;
+          text-align: CENTER;
+          color:hsl(191deg 2% 54%);
+          font-family:Poppins-Medium !important;
+        }
+
+        .seats{
+          font-size: 15px;
+          text-align: CENTER;
+          color:white;
+          padding-top: 10px;
+          background-color: hsl(175deg 65% 36%);
+          border-radius: 5px;
+         font-family:Poppins-Medium !important;
+        }
+        .no_seats_lable_res{
+          margin-top: 20%;
+        }
+        .no_seats_lable_res2{
+          margin-top: 15px;
+        }
+        .imgborer{
+          border-radius: 5px;
+          background-color: white;
+        }
+        .midrow{
+          margin-left: 5px;
+        }
+        .taptpreddem{
+          font-size: 8px;
+          color:white;
+          text-align: CENTER;
+          margin-left: 5px;
+           font-family:Poppins-Medium !important;
+        }
+
+        .rowbackcolor{
+          background-color: hsl(175deg 65% 36%);
+        }
+        .purhcasebt{
+        margin-top: 4px;
+        width: 100%;
+        text-align: end;
+        }
+        .btn{
+        
+          background:hsl(228deg 3% 35%);
+          color:white;
+          font-size: 9px;
+         
+          border-radius: 5px;
+          text-align: CENTER;
+           font-family:Poppins-Medium !important;
+        }
+        .seats1{
+          font-size: 15px;
+          text-align: CENTER;
+          color:white;
+          padding: 5px; 
+          background-color: hsl(228deg 3% 35%);
+          border-radius: 5px;
+         font-family:Poppins-Medium !important;
+        }
+        /* @media (max-height: 360px) and (max-width: 720px) {
+          .btn {
+            margin-right: 0px;
+            width: 82px;
+            }
+          }
+          @media (min-height: 768px) {
+            .btn {
+              margin-right: 67px;
+              width: 89px;
+              }
+            }
+            
+          @media (max-height: 768px) and (max-width: 1024px) {
+            .btn {
+              margin-right: 115px;
+              width: 89px;
+              }
+            }
+            @media (max-width: 360px) {
+              .btn {
+                margin-right: 0px;
+                width: 82px;
+                }
+              }
+
+              @media (max-width: 480px)and (min-height:765px){
+                .btn {
+                  margin-right:34px;
+                  width: 89px;
+                  }
+                } */
+                
+
+         
+
+          
+        

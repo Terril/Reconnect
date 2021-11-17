@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  url:'http://ncsdev.in/api/'
+  url:'https://reconnectprogram.club/api/',
+  imageUrl:'https://reconnectprogram.club',
 };

@@ -12,7 +12,7 @@ ion-back-button{
 .list_container{margin: 5px;}
 .list_row{margin: 10px 5px 10px 5px; box-shadow: 0 0px 4px 1px #ddd;border-radius: 5px;}
 .img_icon{width: 100px;height: 100px;margin-top: 20px;margin-left: 5px;}
-.p_title{margin-left: 11px; width: 100%; font-size: 17px; color:#fff;font-family:Poppins-Medium !important;}
+.p_title{margin-left: 18px; width: 100%; font-size: 17px; color:#fff;font-family:Poppins-Medium !important;}
 .p_sub_title{margin-left: 11px; width: 100%; font-size: 13px; color:#fff;margin-bottom: 3px;font-family:Poppins-Medium !important;}
 .p_location{font-size: 13px;margin-left: 4px;margin-top: 3px;margin-bottom: 3px;}
 .p_location ion-icon{color: rgb(100, 152, 231);margin-right: 5px;}
@@ -29,5 +29,15 @@ ion-back-button{
   bottom: 0px;
   width: 97%;
   height: 200px;
-  background: #0000007d;}
+  background: #00000045;}
   .rating_conainer{margin-left: 5px;display: none;}
+  .datesty{
+    font-size: 14px;
+    color: white;
+    margin-left: 11px;
+  }
+  .promotion{
+    font-size: 15px;
+    color: white;
+    margin-left: 11px;
+  }

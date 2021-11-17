@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment';
 export class PromotionsService {
 
   private getPartnerOfferList = environment.url+"PartnerOfferApi/getPartnerOfferList";
+  private getHotelOfferList = environment.url+"HotelPromotionAPI/getHotelPromotionList";
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -24,6 +25,15 @@ export class PromotionsService {
   
    
     return this.httpClient.get<any>(`${this.getPartnerOfferList}`).pipe(
+      catchError(this.handleError)
+    );;
+     
+  }
+  _getHotelOfferList(): Observable<any>
+  {
+  
+   
+    return this.httpClient.get<any>(`${this.getHotelOfferList}`).pipe(
       catchError(this.handleError)
     );;
      

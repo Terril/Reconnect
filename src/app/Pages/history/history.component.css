@@ -5,20 +5,24 @@
   ion-back-button{
     --color: white;
   }
+  .container_view{margin: 10px;}
+.expandable_container{background: #fff;}
+.exapandable_view{background-color: #75b1b9;padding: 5px;width: 100%;color:#fff;font-family:Poppins-Medium !important;}
   .header_title{color: #fff;text-align: center;width: 100%;font-family:Poppins-Medium !important;font-size: 18px;;}
   ._menu_icon{color: #fff;margin: 0px 0px;font-size: 30px;}   
   ._cart_icon{color: #fff;margin: 8px 0px;font-size: 26px;margin-left: 10px;}
   .right_logo{width: 30px;height: 35px;float: right;margin-top: -19px;margin-right: 15px;}
   .list_row{padding: 5px;margin: 10px 5px 10px 5px; box-shadow: 0 0px 4px 1px #ddd;border-radius: 5px;background: #d3e2e5;}
-  .list_row_even{padding: 5px;margin: 10px 5px 10px 5px; box-shadow: 0 0px 4px 1px #ddd;border-radius: 5px;background: #e8e8e8;padding: 5px;}
+  .list_row_even{padding: 5px;margin: 10px 5px 10px 5px; box-shadow: 0 0px 4px 1px #ddd;border-radius: 5px;background: #e8e8e8;padding: 5px;width: 100%;}
 .time_la{    
   color: #76a1aa;
   font-size: 15px;
   text-align: CENTER;
   background: #fff;
-  padding: 15px;
-  border-radius: 5px;;
-  margin: 10px;
+  
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   line-height: 16px;
   font-family:Poppins-Medium !important;
   width: 100%;
@@ -49,16 +53,27 @@
   padding: 10px;
   border-radius: 5px;
   background: #20988f;
-  margin-right: 6px;
+ 
   text-align: center;
   align-self: center;
 }
-
+.checkout
+{
+  font-size: 10px;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  background: #20988f;
+  margin-top: 5px;
+  text-align: center;
+  align-self: center;
+}
 .p_title{margin: 5px; width: 100%; font-size: 13px; color: #63949a;font-family:Poppins-Medium !important; }
-.p_sub_title{margin:-5px 0px 0px 3px ; width: 100%; font-size: 11px; color: rgb(112, 111, 111);margin-bottom: 3px;font-family:Poppins-Medium !important; }
+.p_title1{width: 100%; font-size: 13px; color: #63949a;font-family:Poppins-Medium !important; }
+.p_sub_title{ width: 100%; font-size: 11px; color: rgb(112, 111, 111);margin-bottom: 3px;font-family:Poppins-Medium !important; }
 
   .list_container{margin: 5px;}
-  .list_row{margin: 10px 5px 10px 5px; box-shadow: 0 0px 4px 1px #ddd;border-radius: 5px;}
+  .list_row{margin: 10px 5px 10px 5px; box-shadow: 0 0px 4px 1px #ddd;border-radius: 5px; width: 100%;}
   .img_icon{width: 100px;height: 100px;margin-top: 20px;margin-left: 5px;}
   
   .card_content{margin: 5px;}
@@ -87,7 +102,7 @@
       width: 58px;
       height: 58px;
       color: #fff;
-      background: #047afe;
+      background: #088a74;
       padding: 10px;
       font-family:Poppins-Medium !important;
       font-size: 14px;
@@ -112,3 +127,6 @@
           text-align: center;
           width: 100%;
       } 
+      .no_seats_lable_res{
+        width: 100%;
+      }

@@ -2,108 +2,269 @@
   <ion-content [fullscreen]="true">
     <div class="header_banner">
       <div class="header_overlay">
+
          <div class="icon_conatiner">
 
           <ion-row>
-           <ion-col size="2" ><ion-back-button defaultHref="tablinks"></ion-back-button></ion-col>
-           <ion-col size="1" offset="7"><ion-icon  class="_cart_icon" name="bag-handle-outline"></ion-icon></ion-col>
-           <ion-col size="2" ><ion-menu-button item-right class="_menu_icon"></ion-menu-button></ion-col>
-          
+              <ion-col size="2">
+                  <ion-back-button defaultHref="tablinks"></ion-back-button>
+              </ion-col>
+              <ion-col size="1" offset="7" *ngIf="cartData?.length==0" (click)="_checkOut()">
+                  <ion-icon class="_cart_icon" name="bag-handle-outline"></ion-icon>
+              </ion-col>
+              <ion-col size="1" offset="7" *ngIf="cartData?.length!=0" (click)="_checkOut()">
+                  <ion-icon class="_cart_icon" name="bag-handle"></ion-icon>
+              </ion-col>
+              <ion-col size="2">
+                  <ion-menu-button item-right class="_menu_icon"></ion-menu-button>
+              </ion-col>
           </ion-row>
-          <ion-row><ion-label class="header_title">Purchase Passes</ion-label></ion-row>
-         </div>
-
-    
-
-      
-          
-   
+          <ion-row>
+              <ion-label class="header_title">Day Passes</ion-label>
+          </ion-row>
+      </div>
+      <ion-col size="7" ><img class="right_logo" src="../../../assets/second_logo.png"/></ion-col>
       </div>
     </div>
 
     <div class="container_form_box">
-        <section class="section_one">
-           
-          <div  class="expandable_container">
+      <!-- <div  *ngFor="let branch of branchList;let i = index">
+        <ion-row class="exapandable_view" (click)="_toggle(i,branch)">
+            <ion-col size="9">{{branch.item.branchName}}</ion-col>
+            <ion-col *ngIf="currentStep!=i" size="1" offset="2"><ion-icon name="caret-down-outline"></ion-icon></ion-col>
+            <ion-col *ngIf="currentStep==i" size="1" offset="2"><ion-icon name="caret-up-outline"></ion-icon></ion-col>
+        </ion-row>
+        <ng-container >
+          <div  *ngIf="currentStep==i" class="expandable_container">
+            <ion-list>
             <ion-item>
-          
-               <ion-col>
-                 <label class="p_title">First Name</label><br>
-                 <label class="p_value">Maria</label>
-               </ion-col>
-               <ion-col>
-                 <label class="p_title">Last Name</label><br>
-                 <label class="p_value">Ustinaska</label>
-               </ion-col>
-             </ion-item>
-            
-             
-
-             <ion-item >
-               <ion-col>
-                 <label class="p_title">Membership</label><br>
-                 <label class="p_value">Dimand</label>
-               </ion-col>
-               <ion-col >
-                 <label class="p_title">Property</label><br>
-                 <label class="p_value">Fiarmount The Plam</label>
-               </ion-col>
-             </ion-item>
-
-             <ion-item lines="none" >
-              <ion-col>
-                <label class="p_title">Term</label><br>
-                <label class="p_value"></label>
-              </ion-col>
-              <ion-col >
-                <label class="p_title">Visa Type</label><br>
-                <label class="p_value"></label>
-              </ion-col>
+              <ion-label>Select Days</ion-label>
+              <ion-select id="fiarmont_days+i" [(ngModel)]="branch.selectdDay" (ionChange)="getSelectedTypes(branch)">
+                <ion-select-option value="Weekend">Weekend</ion-select-option>
+                <ion-select-option value="Weekday">Weekdays</ion-select-option>
+                </ion-select>
+               
             </ion-item>
-             
-           </div>     
-
-
-            
-
- 
-
-        </section>
-
-        <section class="section_one">
-           
-          <ion-list class="list_container">
-            <ion-row class="list_row"  *ngFor="let item of passesList ">
-            
-               <ion-col size=4>
-               
-                  <img style=" width: 100px; height: 80px;border-radius: 5px;" src="../../../assets/sample.jpg">
-          
-               </ion-col>
-      
-               <ion-col size=7 >
-                <ion-row><label class="p_title">{{item.Daypasses}}</label></ion-row>
-                <ion-row> <label class="p_price">${{item.Price}}</label></ion-row>
-                <ion-row>
-                  <ion-col size=2><button class="save_">+</button></ion-col>
-                  <ion-col size=2><label class="_counte">1</label></ion-col>
-                  <ion-col size=2 ><button class="_remove" color="danger" >-</button></ion-col>
-              </ion-row>
-               
-              </ion-col>
-      
-            </ion-row>
-           
+            <ion-item *ngIf="branch.selectdDay!=''">
+              <ion-label>Select Type</ion-label>
+            <ion-select id="fiarmont_daystpe+i" [(ngModel)]="branch.selectedType" (ionChange)="getSelectedDays(branch)">
+              <ion-select-option *ngFor ="let type of typeList" value="{{type.value}}">{{type.display}}</ion-select-option>
+              
+              </ion-select>
+            </ion-item>
           </ion-list>
-
-
+            <section class="section_one" *ngIf="branch.selectedType!=''">
+           
+              <ion-list class="list_container">
+              
+                <ion-row class="list_row"  *ngFor="let item of filteredList" >
+                
           
+                   <ion-col size=6>
+                    <ion-row><label  class="p_price">Pass Name: <span class="p_title">{{item.VoucherName}}</span></label></ion-row>
+                    <ion-row> <label  class="p_price">Price:<span  class="p_title"> AED  {{item.Price}}</span></label>
+                   </ion-row>
+                  </ion-col>
+                  <ion-col size=6>
+                    <span >
+                      <button class="save_" (click)="addtoCartItem(item)">+</button>
+                      <label class="_counte">{{getno(item)}}</label>
+                      <button class="_remove" color="danger" (click)="removefromCartItem(item)">-</button>
+                      
+                    </span>
+                  </ion-col>
+                  
+                   
+                 
+          
+                </ion-row>
+                <ion-row *ngIf="filteredList.length==0">No passes found</ion-row>
+              
+              </ion-list>
+            </section>
+          </div>     
+      </ng-container>
+     </div> -->
+     <ion-row class="time_la">
+
+      <ion-col size=3 class="imgborer">
+
+        <img src={{img}}{{item?.imageUrl}} [ngStyle]="{'padding-top': getpadding(item)}">
+
+      </ion-col>
+
+      <ion-col class="midrow">
+        <ion-row><label class="p_title">{{item?.branchName}}</label></ion-row>
+        <ion-row><label class="p_sub_title">Palm Jumeirah</label></ion-row>
+        <ion-row> <label class="p_sub_title">
+                <ion-icon name="location"></ion-icon> {{item?.location}}
+            </label></ion-row>
+        <ion-row> <label class="p_sub_sub_title">
+                <ion-icon name="calendar-number-outline"></ion-icon> valid Untill
+                {{item?.validUntill}}
+            </label></ion-row>
+      </ion-col>
+
+      <ion-col class="seats" size=3.8>
+        <div class="seats" > 
+          <ion-label class="no_seats_lable_res">{{item?.availableCount}}
+          </ion-label><br>
+          <ion-label class="no_seats_lable_res">Available
+          </ion-label>
+          <!-- <ion-row  class="rowbackcolor" >
+              <ion-label class="no_seats_lable_res">{{item?.availableCount}}  Available
+              </ion-label>
+          </ion-row> -->
+
+        </div>  
 
 
+      </ion-col>
+  </ion-row>
+  <div class="exapandable_view">
+    <ion-row>
+        <ion-col size="9">Select Days</ion-col>
+        <ion-col size="1" offset="2"><ion-icon name="caret-down-outline"></ion-icon></ion-col>
+    </ion-row>
+  </div>
+    <ng-container class="expandable_container">
+      <ion-radio-group allow-empty-selection value="anchovies">
+      <ion-item>
+      <ion-label  class="_radiolable">Weekdays <br><span class="_subheadin">Sunday-Thursday</span></ion-label>
       
+        <ion-radio slot="end" color="primary" value="Weekdays" (click)="getDayWiseVouchers(1)"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label  class="_radiolable">Weekends <br><span class="_subheadin" >Friday-Saturday</span></ion-label>
+       
+        <ion-radio slot="end" color="primary" value="Weekends" (click)="getDayWiseVouchers(2)"></ion-radio>
+      </ion-item>
+      </ion-radio-group>
+    </ng-container>
+    <div class="exapandable_view">
+      <ion-row>
+          <ion-col size="9">Select Type</ion-col>
+          <ion-col size="1" offset="2"><ion-icon name="caret-down-outline"></ion-icon></ion-col>
+      </ion-row>
+    </div>
+      <ng-container class="expandable_container">
+        <section class="section_one">
+   
+          <ion-list class="list_container">
+            <ion-radio-group allow-empty-selection  *ngFor="let item of passesList;let i = index">
+            <ion-item  class="list_row" >
+              <ion-col size=6>
+                <ion-row><label  class="p_price"><span class="p_title">{{item.VoucherName}}</span></label></ion-row>
+                <ion-row> <label  class="p_price"><span  class="p_title"> AED  {{item.Price}}</span></label>
+               </ion-row>
+              </ion-col>
+              <ion-col size=6 >
+                <span class="_counter">
+                  <button class="btnadd" (click)="removefromCartItem(item)" >-</button>
+                  <label >{{getno(item)}}</label>
+                  <button class="btnremove" color="danger" (click)="addtoCartItem(item)">+</button>
+                  
+                </span> 
+               
+                 
+              
+              </ion-col>
+            
+            
+              <ion-radio slot="end" color="primary" (click)="addtobasek(i,item)"></ion-radio>
+               <!-- <ion-col size=6>
+                <ion-row><label  class="p_price"><span class="p_title">{{item.VoucherName}}</span></label></ion-row>
+                <ion-row> <label  class="p_price"><span  class="p_title"> AED  {{item.Price}}</span></label>
+               </ion-row>
+              </ion-col> -->
+              <!-- <ion-col size=6>
+                <!-- <span >
+                  <button class="save_" (click)="addtoCartItem(item)">+</button>
+                  <label class="_counte">{{getno(item)}}</label>
+                  <button class="_remove" color="danger" (click)="removefromCartItem(item)">-</button>
+                  
+                </span> 
+               
+                  <ion-label>Weekends</ion-label>
+                  <ion-radio slot="end" color="primary" value="Weekends"></ion-radio>
+              
+              </ion-col> -->
+              
+              
+               
+             
+      
+          
+          </ion-item>
+        </ion-radio-group>
+            <ion-row *ngIf="passesList?.length==0" style="margin-left: 27%;">No passes found</ion-row>
+          
+          </ion-list>
+        </section>
+      </ng-container>
+ <!--<ng-container >
+ <div  *ngIf="currentStep==i" class="expandable_container">
+    <ion-list>
+    <ion-item>
+      <ion-label>Select Days</ion-label>
+      <ion-select id="fiarmont_days+i" [(ngModel)]="branch.selectdDay" (ionChange)="getSelectedTypes(branch)">
+        <ion-select-option value="Weekend">Weekend</ion-select-option>
+        <ion-select-option value="Weekday">Weekdays</ion-select-option>
+        </ion-select>
+       
+    </ion-item>
+    <ion-item *ngIf="branch.selectdDay!=''">
+      <ion-label>Select Type</ion-label>
+    <ion-select id="fiarmont_daystpe+i" [(ngModel)]="branch.selectedType" (ionChange)="getSelectedDays(branch)">
+      <ion-select-option *ngFor ="let type of typeList" value="{{type.value}}">{{type.display}}</ion-select-option>
+      
+      </ion-select>
+    </ion-item>
+  </ion-list>
+    <section class="section_one" *ngIf="branch.selectedType!=''">
+   
+      <ion-list class="list_container">
+      
+        <ion-row class="list_row"  *ngFor="let item of filteredList" >
+        
+  
+           <ion-col size=6>
+            <ion-row><label  class="p_price">Pass Name: <span class="p_title">{{item.VoucherName}}</span></label></ion-row>
+            <ion-row> <label  class="p_price">Price:<span  class="p_title"> AED  {{item.Price}}</span></label>
+           </ion-row>
+          </ion-col>
+          <ion-col size=6>
+            <span >
+              <button class="save_" (click)="addtoCartItem(item)">+</button>
+              <label class="_counte">{{getno(item)}}</label>
+              <button class="_remove" color="danger" (click)="removefromCartItem(item)">-</button>
+              
+            </span>
+          </ion-col>
+          
+           
+         
+  
+        </ion-row>
+        <ion-row *ngIf="filteredList.length==0">No passes found</ion-row>
+      
+      </ion-list>
+    </section>
+  </div>    
+</ng-container>  -->
 
-      </section>
-      <ion-button class="_button"  (click)="_checkOut()"  >Purchase Passess</ion-button>
+
+<ion-row>
+  <ion-col size=6>
+    <ion-button class="_purchase"  (click)="addtoCart()" [disabled]="getiscarthavepasses()==0" >Add to basket</ion-button>
+  </ion-col>
+  <ion-col size=6>
+    <ion-button class="_checkout"  (click)="_checkOut()" [disabled]="getiscarthavepasses()==0" >Checkout</ion-button>
+  </ion-col>
+  
+</ion-row>
+        
+     
     </div>
   
   </ion-content>

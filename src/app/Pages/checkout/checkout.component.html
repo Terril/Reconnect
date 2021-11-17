@@ -13,77 +13,72 @@
           </ion-row>
           <ion-row><ion-label class="header_title">Checkout</ion-label></ion-row>
          </div>
-   
+         <ion-col size="7" ><img class="right_logo" src="../../../assets/second_logo.png"/></ion-col>
       </div>
    <div class="checkout_container">
-   <div class="input_container">
-    <label class="input_title">Country</label>
-    <select class="custome_dp">
-        <option class="select_option" >Select</option>
-        <option class="select_option" >India</option>
-    </select>
-   </div>
-
-   <div class="input_container">
-    <label class="input_title">State / Union Territory</label>
-    <select class="custome_dp">
-        <option class="select_option" >Select</option>
-        <option class="select_option" >India</option>
-    </select>
-   </div>
-
-   <ion-list>
-  <ion-radio-group>
-    <ion-item lines="none">
-      <ion-radio class="radio_btn" value="card"></ion-radio>
-      <ion-label>Credit/Debit card</ion-label>
-    </ion-item>
-    <ion-item lines="none">
-        <ion-radio class="radio_btn" value="net"></ion-radio>
-        <ion-label>Net Banking</ion-label>
-      </ion-item>
-
-      <ion-item lines="none">
-        <ion-radio class="radio_btn" value="upi"></ion-radio>
-        <ion-label>Pay With UPI</ion-label>
-      </ion-item>  
-      <ion-item lines="none">
-        <ion-radio class="radio_btn" value="pytm"></ion-radio>
-        <ion-label>Pay With Paytm</ion-label>
-      </ion-item>  
-  </ion-radio-group>
-</ion-list>
-<ion-label class="or_dt">
-    Order Details
-  </ion-label>
-  <ion-list class="list_container">
-    <ion-row class="list_row"  *ngFor="let card of [0,1] ">
     
-       <ion-col size=2>
-       
-          <img style=" width: 50px; height: 50px;border-radius: 5px;" src="../../../assets/sample.jpg">
-  
-       </ion-col>
-
-       <ion-col size=7>
-        <ion-row><label class="p_title">Fit and Lift Gym Center</label></ion-row>
-        <ion-row> <label class="p_price">$4000.00</label></ion-row>
-      
-       
-      </ion-col>
-
-    </ion-row>
+     <div class="or_dt">
+      <ion-label >
+        Order Details
+      </ion-label>
+     </div>
    
+    <ion-list >
+      <ion-row class="list_row ordercard"  *ngFor="let item of cartInfo ">
+     
+         <ion-col >
+          <ion-row><label class="p_price">Branch Name:<span class="p_title">{{item.branchName}}</span></label></ion-row>
+          <ion-row> <label class="p_price">Pass Type<span class="p_title">{{item.days}}</span></label></ion-row>
+          <ion-row> <label class="p_price">Pass Name <span class="p_title">{{item.Type}}</span></label></ion-row>
+          <ion-row> <label class="p_price">Total<span class="p_title">AED {{item.Price}} X {{item.noofpasses}} = AED {{item.Price*item.noofpasses}}</span></label></ion-row>
+         
+        </ion-col>
+  
+      </ion-row>
+ 
+    </ion-list>
+
+    <div class="or_dt">
+      <ion-label >
+       Card Details
+      </ion-label>
+     </div>
+     <ion-list>
+     <ion-card class="or_dt_t">
+    
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="stacked">CARD HOLDER NAME</ion-label>
+          <ion-input  [(ngModel)]="creditCardName" type=" text" placeholder="CARD HOLDER NAME" required></ion-input>
+          
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">CARD NUMBER</ion-label>
+          <ion-input  type ="tel" id="cardnumber" placeholder="CARD NUMBER" (ionChange)="cc_format($event)"  minlength="19" maxlength="19" [(ngModel)]="creditCardNumber" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">CARD CVV</ion-label>
+          <ion-input  [(ngModel)]="creditCardCVV" type="Password"  minlength="3" maxlength="3" placeholder="CVV" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">CARD VALID TILL</ion-label>
+        <ion-datetime [(ngModel)]="creditCardExpDate" displayFormat="MM/YYYY" [min]="mindate" [max]="maxdate" placeholder="VALID TILL" required></ion-datetime>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
   </ion-list>
+     
+  
+
 
   <div class="bottom_container">
     <ion-row class="total_">
-     <ion-col ><label class="price_title_bottom">By completing your purchase you agree with there
-         Terms Of Service
+     <ion-col ><label class="price_title_bottom">By completing your purchase you agree with the
+         terms Of Service
      </label> </ion-col>
-     <ion-col size=3 ><label class="price_title_bottom_value">$80000</label> </ion-col>
+     <ion-col size=3 ><label class="price_title_bottom_value">AED {{grandTotal}}</label> </ion-col>
     </ion-row>
-   <ion-button class="_button" (click)="success()"  >Complete Payment</ion-button>
+   <ion-button  type="submit" class="_button" (click)="onCompletePayment()"  >Complete Payment</ion-button>
  </div>
 </div>   
     </div>

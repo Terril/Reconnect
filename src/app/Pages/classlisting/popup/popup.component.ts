@@ -7,17 +7,25 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./popup.component.css']
 })
 export class PopupComponent implements OnInit {
+  text: string;
+  showdelete: boolean=false;
 
   constructor(public modalController: ModalController,private router:Router) { }
 
   ngOnInit(): void {
+    if(this.text.includes("Cancel")){
+      this.showdelete=true;
+    }else{
+      this.showdelete=false;
+    }
+    
   }
   dismiss() {
     // using the injected ModalController this page
     // can "dismiss" itself and optionally pass back data
   
     this.modalController.dismiss({
-      'dismissed': true
+      'dismissed': false
     });
   }
   checkout()
@@ -25,6 +33,6 @@ export class PopupComponent implements OnInit {
     this.modalController.dismiss({
       'dismissed': true
     });
-    this.router.navigate(['/checkout']);
+   
   }
 }

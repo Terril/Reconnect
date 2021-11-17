@@ -13,7 +13,7 @@
           </ion-row>
           <ion-row><ion-label class="header_title">Gym Booking</ion-label></ion-row>
          </div>
-   
+         <ion-col size="7" ><img class="right_logo" src="../../../assets/second_logo.png"/></ion-col>
       </div>
     </div>
    
@@ -28,47 +28,50 @@
  
      <ng-container *ngIf="show_container_one; ">
          <div  class="expandable_container">
-          <ion-grid>
+            <ion-grid>
       
-            <ion-row>
-             <ion-col>
-               <ion-card class="day_passess" (click)="select_branch(1)" >
-                   <ion-card-content [ngClass]="this.activaLayer == 1 ? 'active_layer' : 'black_layer'">
-                     <h1 class="card_lable"   >Fairmont The Palm</h1>
+            <ion-row >
+             <ion-col size=6 *ngFor="let branch of branchesList;let i as index" >
+             
+               <ion-card class="day_passess" (click)="select_branch(i,branch)" >
+                   <ion-card-content [ngClass]="this.activaLayer == i ? 'active_layer' : 'black_layer'">
+                     <img src={{img}}{{branch?.imageUrl}}  [ngStyle]="{'padding-top': getpadding(i)}">
       
                    </ion-card-content>
                </ion-card>
+              
              </ion-col>
-             <ion-col>  
-               <ion-card class="gym_booking" (click)="select_branch(2)" >
-                 <ion-card-content [ngClass]="this.activaLayer == 2 ? 'active_layer' : 'black_layer'">
-                   <h1 class="card_lable"   >Riva The Palm</h1>
-                 
-                 </ion-card-content>
-             </ion-card></ion-col>
+         
             </ion-row>
      
-            <ion-row>
-             <ion-col>
-               <ion-card class="class_booking" (click)="select_branch(3)"  >
-                   <ion-card-content [ngClass]="this.activaLayer == 3 ? 'active_layer' : 'black_layer'">
-                     <h1 class="card_lable" >Movenpick JLT</h1>
-                    
-                   </ion-card-content>
-               </ion-card>
-             </ion-col>
-             <ion-col>  
-               <ion-card class="vouchers" (click)="select_branch(4)">
-                 <ion-card-content [ngClass]="this.activaLayer == 4 ? 'active_layer' : 'black_layer'">
-                   <h1 class="card_lable" >TH8 The Plam</h1>
-                  
-                 </ion-card-content>
-             </ion-card></ion-col>
-            </ion-row>
+           
      
             
          
-           </ion-grid>  
+           </ion-grid>    
+            <!-- <ion-list>
+
+            <ion-row *ngFor="let item of branchesList;  index as i" >
+             <ion-row class="time_la">
+              
+                 <ion-col size=3 class="imgborer">
+
+                     <img src={{img}}{{item?.imageUrl}}  [ngStyle]="{'padding-top': getpadding(i)}">
+
+                 </ion-col>
+
+                 <ion-col class="midrow">
+                     <ion-row><label class="p_title">{{item?.branchName}}</label></ion-row>
+                    
+                   
+                 </ion-col>
+
+                 
+                 
+             </ion-row>
+         </ion-row>
+         </ion-list>  -->
+
          </div>     
      </ng-container>
 
@@ -89,25 +92,25 @@
                 <ion-slides pager="false" size="8" [options]="slideOptions" #slideWithNav>
                   <ion-slide   (click)="load_date(item)" style="width: 58px;
                   height: 58px;margin-right: 10px;" *ngFor="let item of this.allDays; " >
-                    <ion-label  [ngClass]="item.date == this.selected_day ? 'date_conatiner_active' : 'date_conatiner'" >{{item.day_name}}<br>{{item.date}}</ion-label>
+                    <ion-label  [ngClass]="item.date == this.selected_day ? 'date_conatiner_active' : 'date_conatiner'"  (click)="getslots(item)">{{item.day_name}}<br>{{item.date}}</ion-label>
                   </ion-slide>
                 
                    </ion-slides>
-                  <label class="arrow_right" (click)="next_month()" size="8"><ion-icon name="arrow-forward-outline"></ion-icon></label>
+                  <!-- <label class="arrow_right" (click)="next_month()" size="8"><ion-icon name="arrow-forward-outline"></ion-icon></label> -->
                 </ion-item>
             
             </div>
 
           </div>
-          <div class="time_container">
+          <div class="time_container" *ngIf="timeslots.length>0">
             <ion-row>
-              <ion-col  [ngClass]="i == this.activatime ? 'time_slot_active' : 'time_slot'"  size="3" *ngFor="let item of time; let i=index" (click)="select_time(i)">{{item}}</ion-col>
+              <ion-col  [ngClass]="i == this.activatime ? 'time_slot_active' : 'time_slot'"  size="3" *ngFor="let item of timeslots; let i=index" (click)="select_time(i,item)">{{item.TimeFrom}}-{{item.TimeTo}}</ion-col>
             </ion-row>
           </div>     
 
           
       </ng-container>
-      <ion-button class="login_button" (click)="presentActionSheet()" >Book Now</ion-button>
+      <ion-button class="login_button"  [disabled]="branchInfo==null||selectedtimeslot==null||selectedDate==null"   (click)="presentActionSheet()" >Book Now</ion-button>
         
  </div>
       

@@ -1,0 +1,321 @@
+.header_banner{width: 100%;height: 130px; background:url(../../../assets/banner-bg.jpg);--background-repeat: no-repeat;
+    --background-size: cover;  background-size: cover;}
+  .header_overlay{background:#20978f69;height: 130px;}
+  .icon_conatiner{padding-top: 10px;}
+  ion-back-button{
+    --color: white;
+  }
+  .header_title{color: #fff;text-align: center;width: 100%;font-family:Poppins-Medium !important;font-size: 18px;;}
+  ._menu_icon{color: #fff;margin: 0px 0px;font-size: 30px;}   
+  ._cart_icon{color: #fff;margin: 8px 0px;font-size: 26px;margin-left: 10px;}
+  .right_logo{width: 30px;height: 35px;float: right;margin-top: -19px;margin-right: 15px; }
+  .list_container{margin: 20px;}
+.list_row{margin: 10px 5px 10px 5px; box-shadow: 0 0px 4px 1px #ddd;border-radius: 5px; font-family:Poppins-Medium !important}
+.img_icon{width: 100px;height: 100px;margin-top: 20px;margin-left: 5px;}
+.container_view{margin: 10px;;}
+.expandable_container{background: #fff;margin-top: 12px;
+ }
+.exapandable_view{background-color: #75b1b9;padding: 10px;width: 100%;color:#fff;font-family:Poppins-Medium !important;
+}
+
+
+    .rating_conainer{margin-left: 5px;}
+    .card_cantainer
+{
+ 
+    display: block;
+    margin: 0px;
+    border-radius: 0px;
+    margin-top: 20px;
+
+}
+.container {    
+    height: 125px;
+    width: 125px;
+}
+.overlay
+{
+    background-color: #00000052;
+    width: 100%;
+    height: 100%;
+}
+.class_sliders{padding-left: 15px;}
+.card_lable
+{
+    color: #fff;
+    width: 100%;
+    margin: 0px auto;
+    margin-top: 46px;
+    width: 70px;
+    font-weight: 700;
+    display: block;
+    text-align: center;
+}
+
+.item_container
+{
+   
+   background: url(../../../assets/offer_bg.png);
+   background-position: center center;
+   height: 160px;
+   background-size: cover;
+   border-radius: 25px;
+   background-repeat: no-repeat;
+   box-shadow: 0px 2px 4px #a09a9a;
+}
+.section
+{
+    height: 80px;
+    padding-top: 10px;
+}
+.dotted_line{
+    border-top: 1px dashed #000;
+    display: block;
+}
+
+.dot {
+    position: absolute;
+    top: 75px;
+    left: 2px;
+    transform: translate(-50%, -50%);
+    height: 20px;
+    width: 20px;
+    border-radius: 150px 150px 0 0;
+
+    background-color: #fff;
+    transform: rotate(90deg);
+
+}
+.dot1 {
+    position: absolute;
+    top: 75px;
+    right: 2px;
+    transform: translate(-50%, -50%);
+    height: 20px;
+    width: 20px;
+    border-radius: 150px 150px 0 0;
+    background-color: #fff;
+  
+    transform: rotate(-90deg);
+  
+}
+.discount_price{    
+    font-family: Poppins-Medium !important;
+    font-size: 25px;
+    margin-left: 46px;
+    text-align: left;
+    width: 100%;
+    margin-top: 25px;
+    font-weight: bold;}
+    .offer_title
+    {
+        font-family: Poppins-Medium !important;
+        margin-left: 46px;
+        text-align: left;
+        margin-top: 20px;
+        color: #504e4e;
+        width: 100%;
+        font-size: 14px;
+ 
+
+    }
+    .offer_title_date
+    {
+        font-family: Poppins-Medium !important;
+        margin-left: 46px;
+        text-align: left;
+        margin-top: 5px;
+        color: #504e4e;
+        width: 100%;
+        font-size: 12px;
+ 
+
+    }
+    .offer_title span{color: #000;}
+
+    .promotion{  --background-size: cover;background-size: cover;height: 100px;padding: 0px;margin: 0px;}
+    .black_layer{height: 100px;    padding: 10px;font-family:Poppins-Medium !important}
+    .card_lable_2{    color: #fff;font-family: Poppins-Mediam!important;font-size: 18px;position: relative;font-weight: bolder;top: 20px;width: 100px;}
+    .voucher_lable{    position: absolute;
+        left: 22px;
+        font-size: 15px;
+        font-family: Poppins-Mediam!important;
+        top: 10px;} 
+        .voucher_lable2{    position: absolute;
+            left: 22px;
+            font-size: 15px;
+            font-family: Poppins-Mediam!important;
+            top: 57px} 
+
+            .card_view{height: 150px;padding: 0px;margin: 0px;color: #fff;font-family:Poppins-Medium !important;}
+            .card_lable_number{font-size: 23px;font-weight: bolder;}
+            .card_lable_text{font-size: 15px;}
+            .black_layer{padding: 0px;margin: 10px;}
+            .card_lable_view{text-align: center;font-size: 9px;width: 100%;}
+            .odd{
+                background-color: #dd9ca2;
+              }
+              .even{
+                background-color: #7fd0ed;
+              }
+              .card_lable_view{text-align: center;font-size: 9px;width: 100%;}
+              ._button{margin: 0px auto;
+                width: 90%;
+                  margin-bottom: 10px;
+                  --background-activated:#20978F;
+                  display: block;
+                  --background: #75b1b9;
+                  font-size: 18px;
+                  --border-radius: 5px;
+                  height: 40px;}
+                  .list_container{padding-bottom: 150px;}
+                  .add_new_box{
+                    margin-top: 50px;
+                  }   
+                   
+                  .time_la{    
+                    color: #76a1aa;
+                    font-size: 15px;
+                    text-align: CENTER;
+                    background: hsl(0deg 0% 95%);
+                    padding: 15px;
+                    border-radius: 5px;;
+                    margin-bottom: 12px;
+                    line-height: 16px;
+                    font-family:Poppins-Medium !important;
+                    width: 100%;
+                     }
+                     .p_title{
+                      font-size: 13px;
+                      text-align: CENTER;
+                      color:hsl(191deg 2% 54%);
+                      font-family:Poppins-Medium !important;
+                    }
+            
+                    .p_sub_title{
+                      font-size: 10px;
+                      text-align: CENTER;
+                      color: hsl(225deg 2% 4%);
+                      font-family:Poppins-Medium !important;
+                    }
+            
+                    .p_sub_sub_title{
+                      font-size: 10px;
+                      text-align: CENTER;
+                      color:hsl(191deg 2% 54%);
+                      font-family:Poppins-Medium !important;
+                    }
+            
+                    .seats{
+                      font-size: 15px;
+                      text-align: CENTER;
+                      color:white;
+                      padding: 9px;
+                      background-color: hsl(175deg 65% 36%);
+                      border-radius: 12px;
+                     font-family:Poppins-Medium !important;
+                    }
+                    .no_seats_lable_res{
+                      margin-top: 20%;
+                    }
+                    .no_seats_lable_res2{
+                      margin-top: 15px;
+                    }
+                    .imgborer{
+                      border-radius: 5px;
+                      background-color: white;
+                    }
+                    .midrow{
+                      margin-left: 12px;
+                    }
+                    .taptpreddem{
+                      font-size: 8px;
+                      color:white;
+                      text-align: CENTER;
+                      margin-left: 5px;
+                       font-family:Poppins-Medium !important;
+                    }
+            
+                    .rowbackcolor{
+                      background-color: hsl(175deg 65% 36%);
+                    }
+                    .purhcasebt{
+                    
+                margin-left: 69.5%;
+                margin-top: 4px;
+                    }
+                    .btn{
+                      padding: 9px;
+                      background:hsl(228deg 3% 35%);
+                      color:white;
+                      font-size: 9px;
+                      border-radius: 5px;
+                      text-align: CENTER;
+                       font-family:Poppins-Medium !important;
+                    }
+            
+                    .btnadd{
+                      height: 30px;
+                      margin-right: 12px;
+                      background-color:hsl(187deg 33% 59%);
+                    }
+                    .btnremove{
+                      height: 30px;
+                      margin-left: 12px;
+                      background-color:hsl(187deg 33% 59%);
+                    }
+                    ._counter{
+                      padding-bottom: 6px;
+                      padding-top: 7px;
+                      background-color: hsl(0deg 0% 95%);
+                    }
+                    ._radiolable{
+                      font-size: 13px;
+                     
+                      color:hsl(191deg 2% 54%);
+                      font-family:Poppins-Medium !important;
+                    }
+            
+                    ._subheadin{
+                      font-size: 9px;
+                    }
+            
+                    ._purchase{
+                      margin: 0px auto;
+                      width: 90%;
+                        margin-bottom: 10px;
+                        --background-activated:hsl(228deg 3% 35%);
+                        display: block;
+                        --background: hsl(228deg 3% 35%);
+                        font-size: 14px;
+                        --border-radius: 5px;
+                        height: 40px;
+                    }
+                    ._checkout{
+                      margin: 0px auto;
+                      width: 90%;
+                        margin-bottom: 10px;
+                        --background-activated:#20978F;
+                        display: block;
+                        --background: #75b1b9;
+                        font-size: 14px;
+                        --border-radius: 5px;
+                        height: 40px;
+                    }
+            .container_form_box{
+              padding: 9px;
+            }
+                 
+            .subpass{
+                background-color: hsl(0deg 0% 95%);
+                padding: 10px;
+                margin: 8px;
+  
+            }
+            .subpassTitle{
+              font-size: 15px;
+              
+              color:hsl(191deg 36% 33%);
+              font-family:Poppins-Medium !important; 
+            }
+  

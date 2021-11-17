@@ -1,13 +1,14 @@
-<ion-content [fullscreen]="true" >
+<ion-content [fullscreen]="true">
+
    <div class="body_container">
-    <div class="body_overlay">
+    <div class="body_container1">
         <ion-row>
             <ion-col size="4" offset="4">
               <img class="logo_container" src="../../../assets/second_logo.png" alt="logo-image"/>
             </ion-col>
        </ion-row>
        <ion-grid class="login_container">
-       <label class="input_lable">Email / Mobile No</label>
+       <label class="input_lable">Email</label>
        <ion-row class="input_box">
         <ion-col  size="1">
             <ion-icon class="input_icon" name="mail-outline"></ion-icon>
@@ -26,29 +27,38 @@
            <ion-input class="input_text"  [type]="password_type" [(ngModel)]="user_pass"></ion-input>
           </ion-col>
           <ion-col  size="1">
-            <ion-icon name="eye" class="input_icon" item-right (click)="togglePasswordMode()"></ion-icon>
+            <ion-icon [name]="eyename" class="input_icon" item-right (click)="togglePasswordMode()"></ion-icon>
         </ion-col>
          
    </ion-row>
  
 
    <ion-button class="_button" (click)="login()" >LOGIN</ion-button>
-
+   <ion-row class="checkboxinput">
+    
+      <ion-checkbox color="primary" id="exampleCheck1"  [(ngModel)]="isTermsAccespted"></ion-checkbox>
+      <ion-label for="exampleCheck1">&nbsp;&nbsp;Terms of Use and Policy</ion-label>
+  
+   </ion-row>
+   
+   
    <ion-row >
     <ion-col>
     <a class="forget_lable"  item-right (click)="resetpassword()">Forget Password?</a></ion-col>
     </ion-row>
 
     <ion-row>
-        <a  class="lower_content" item-right (click)="terms()">  By clicking on <b>"sign in"</b> you agree with out term of user and policy</a>
+        <a  class="lower_content" item-right (click)="terms()">  By clicking on <b>"sign in"</b> you agree with our terms of use and policy</a>
     </ion-row>
-    
+    <ion-row>
+      <span class="lower_content">ReConnect @ is part of IFA Group. All Rights Reserved.</span>
+  </ion-row>
     </ion-grid>
   </div>
 
 </div>
 
-<div class="footer_text"><span class="footer_pre">ReConnect</span>@ is part of IFA Group.All Rights Reserved.</div>
+
 </ion-content>
 
  

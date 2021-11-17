@@ -14,16 +14,19 @@ import { MenuController,LoadingController  } from '@ionic/angular';
 export class LoginComponent implements OnInit {
   password_type: string = 'password';
   email_type: string = 'text';
-  email_user:any = 'akash.rekalwar92@gmail.com';
-  user_pass:any = 'akas234';
+  email_user:any = '';
+  user_pass:any = '';
   loading:any;
+  isTermsAccespted =false;
+  
+  eyename="eye-off"
   constructor(private router: Router,private menu: MenuController,private api:LoginService,public alertController: AlertController,private storage:Storage,public loadingController: LoadingController) { }
 
   async  ngOnInit() {
 
     await this.storage.create();
     this.storage.get("userdata").then(data=>{
-      console.log(data);
+     
     });
     this.loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
@@ -34,8 +37,10 @@ export class LoginComponent implements OnInit {
 
 
 
-  togglePasswordMode() {   
+  togglePasswordMode() { 
+     
     this.password_type = this.password_type === 'text' ? 'password' : 'text';
+    this.eyename= this.password_type === 'text' ? 'eye' : 'eye-off' 
  }
  ionViewWillEnter() {
   this.menu.enable(false);
@@ -70,6 +75,7 @@ if(this.email_user==null)
 
   
 }
+
 else if(this.mailValidation(this.email_user))
 {
   let alert = await this.alertController.create({
@@ -80,7 +86,7 @@ else if(this.mailValidation(this.email_user))
 
   await alert.present();
 }
-else if(this.user_pass==null)
+else if(this.user_pass==null || this.user_pass=='')
 {
   let alert = await this.alertController.create({
     cssClass: 'my-custom-class',
@@ -94,13 +100,24 @@ else if(this.user_pass==null)
 
 else{
 
-  this.loading.present();
+  
       let post_data = {
           "userName":this.email_user,
           "password":this.user_pass
       };
+      if(!this.isTermsAccespted){
+        
+        let  alert = await this.alertController.create({
+           cssClass: 'my-custom-class',
+           message: 'Please Accept Terms and conditions.',
+           buttons: ['OK']
+         });
+         await alert.present();
+         return;
+       }
+       this.loading.present();
       this.api._auth(post_data).subscribe(async data =>{
-      
+       
         if(data=="Invalid")
         {
           this.loading.dismiss();
@@ -115,6 +132,7 @@ else{
         {
           this.loading.dismiss();
          this.storage.set("userdata",data);
+         localStorage.setItem("name",data?.Name);
          this.router.navigate(['/tablinks'])
         }
       })

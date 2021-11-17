@@ -5,7 +5,10 @@
         
          <div class="icon_conatiner" slot="end">
            <ion-row>  
-            <ion-icon  class="_cart_icon" (click)="this.myapp.cart()"  name="bag-handle-outline"></ion-icon>
+            <!-- <ion-icon   class="_cart_icon" (click)="cart()"  name="bag-handle-outline"></ion-icon> -->
+             <ion-icon  *ngIf="classcartOrder?.length==0" class="_cart_icon" (click)="cart()"  name="bag-handle-outline"></ion-icon>
+            <ion-icon  *ngIf="classcartOrder?.length!=0" class="_cart_icon" (click)="cart()"  name="bag-handle"></ion-icon> 
+
              <ion-menu-button  class="_menu_icon"></ion-menu-button>
            </ion-row>
         
@@ -18,11 +21,11 @@
        <div class="membership_container">
         <ion-row class="_row">
             <ion-col size="2.5"><ion-label class="mem_title">Membership</ion-label></ion-col>
-            <ion-col size="5"><ion-label class="mem_values">Diamand</ion-label></ion-col>
+            <ion-col size="5"><ion-label class="mem_values">{{ptype}}</ion-label></ion-col>
           </ion-row>
         <ion-row class="_row"> 
           <ion-col size="2"><ion-label class="mem_title">Valid Until</ion-label></ion-col>
-          <ion-col size="5"><ion-label class="mem_values"><ion-datetime style="display: table-row-group;" value="{{exp_date}}" display-timezone="utc"></ion-datetime></ion-label></ion-col>
+          <ion-col size="5"><ion-label class="mem_values"><ion-datetime style="display: table-row-group;opacity: 1 !important" value="{{exp_date}}" disabled display-timezone="utc"></ion-datetime></ion-label></ion-col>
         </ion-row>
       </div>
 
@@ -44,7 +47,7 @@
           <ion-card class="day_passess" (click)="pasess()">
               <ion-card-content class="black_layer">
                 <h1 class="card_lable" >Day</h1>
-                <h1 class="card_lable" >Pasees</h1>
+                <h1 class="card_lable" >Passes</h1>
               </ion-card-content>
           </ion-card>
         </ion-col>

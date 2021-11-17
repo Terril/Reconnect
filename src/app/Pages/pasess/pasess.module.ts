@@ -5,14 +5,17 @@ import { CommonModule } from '@angular/common';
 
 import { PasessRoutingModule } from './pasess-routing.module';
 import { PurchaseComponent } from './purchase/purchase.component';
+import { FormsModule } from '@angular/forms';
+import { PurchasedPasses } from './purchasedPassesList/purchasedPasses.component';
 
 
 @NgModule({
-  declarations: [PasessComponent, PurchaseComponent],
+  declarations: [PasessComponent, PurchaseComponent,PurchasedPasses],
   imports: [
     CommonModule,
     IonicModule,
-    PasessRoutingModule
+    PasessRoutingModule,
+    FormsModule
   ]
 })
 export class PasessModule { }

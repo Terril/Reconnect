@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ResetpasswordComponent } from './resetpassword.component';
 import { ResetPasswordRoutingModule } from './resetpassword-routing.module';
 import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,6 +12,7 @@ import { IonicModule } from '@ionic/angular';
   imports: [
     CommonModule,
     IonicModule,
+    FormsModule,
     ResetPasswordRoutingModule
   ]
 })

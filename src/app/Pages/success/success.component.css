@@ -9,7 +9,7 @@
   ._menu_icon{color: #fff;margin: 0px 0px;font-size: 30px;}   
   ._cart_icon{color: #fff;margin: 8px 0px;font-size: 26px;margin-left: 10px;}
   .right_logo{width: 30px;height: 35px;float: right;margin-top: -19px;margin-right: 15px;}
-.success-animation { margin:0px auto;	margin: 50px 0px;}
+.success-animation { margin:0px auto;	padding: 17%;}
 
 .checkmark {
     width: 100px;
@@ -17,9 +17,9 @@
     border-radius: 50%;
     display: block;
     stroke-width: 2;
-    stroke: #4bb71b;
+    stroke: #20978F;
     stroke-miterlimit: 10;
-    box-shadow: inset 0px 0px 0px #4bb71b;
+    box-shadow: inset 0px 0px 0px #20978F;
     animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
     position:relative;
     top: 5px;
@@ -31,7 +31,7 @@
     stroke-dashoffset: 166;
     stroke-width: 2;
     stroke-miterlimit: 10;
-    stroke: #4bb71b;
+    stroke:#20978F;
     fill: #fff;
     animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
  
@@ -86,9 +86,14 @@
         margin: 0px auto;
         margin-top: 50px;
         margin-bottom: 10px;
-        --background-activated:#20978F;
+        background:#20978F;
         display: block;
         --background: #75b1b9;
         font-size: 18px;
         --border-radius: 5px;
         height: 2.5em;}
+.bgg{
+        background:#7fb1ab61;
+        height: 100%
+
+    }

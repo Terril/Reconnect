@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoadingController, ToastController } from '@ionic/angular';
+import { ResetPasswordService } from './resetpassword.service';
 
 @Component({
   selector: 'app-resetpassword',
@@ -9,9 +11,27 @@ import { Router } from '@angular/router';
 export class ResetpasswordComponent implements OnInit {
   password_type: string = 'password';
   email_type: string = 'text';
-  constructor(private router:Router) { }
+  email:any;
+  oldPassword:any;
+  newPassword:any;
+  loading: HTMLIonLoadingElement;
+  toast: HTMLIonToastElement;
+  constructor(private router:Router,
+    private api:ResetPasswordService,
+    public loadingController: LoadingController,
+    public toastController: ToastController) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+      duration: 2000
+    });
+    this.toast = await this.toastController.create({
+      message: 'Password Reset Successfully',
+      position: 'top',
+      duration: 2000
+    });
   }
  
   togglePasswordMode() {   
@@ -19,7 +39,28 @@ export class ResetpasswordComponent implements OnInit {
  }
  next()
  {
-  this.router.navigate(['/tablinks']);
+  this.resetPassword()
+ 
  }
+
+ resetPassword(){
+   this.loading.present();
+   const obj={
+    emailId:this.email,
+    oldPassword:this.oldPassword,
+    newPassword:this.newPassword
+
+   }
+   this.api._resetPassword(obj).subscribe(res=>{
+    this.loading.dismiss();
+    if(res=='Success'){
+      this.toast.present();
+      this.router.navigate(['/login']);
+    }
+  
+    
+   })
+ }
+
 
 }

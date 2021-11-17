@@ -1,4 +1,5 @@
-<ion-content>
+<ion-content style="height:50%;">
+  <div *ngIf="flag==0">
     <ion-row class="img_">
         <ion-col >
         <img class="qr_image" src="{{this.qrImage}}">
@@ -12,5 +13,64 @@
         </ion-buttons>
      
       </ion-row>
-   
+      <ion-row>
+        <ion-col  class="termscss">
+          <p [innerHTML]="terms"></p>
+        </ion-col>
+      </ion-row>
+    </div> 
+    <div *ngIf="flag==2" class="warsuceess">
+      <ion-row>
+        <ion-col style="margin-top: 15px;">
+        <label class="titlecolor" >Your Day Pass could not be validated!</label>
+      </ion-col>
+           
+      </ion-row>
+
+      <ion-row>
+        <ion-col >
+          <img class="qr_image" src="../../../../assets/qr-fail.png" width="30%" height="30%">
+          </ion-col>
+           
+      </ion-row>
+      <ion-row>
+        <ion-col>
+        <label class="titlecolor">Please try again</label>
+        </ion-col>
+           
+      </ion-row>
+      <ion-row class="button_container">
+        <ion-buttons style="width: 100%;">
+        <ion-button class="butttonss" (click)="cancel()" >Close</ion-button>
+        </ion-buttons>
+     
+      </ion-row>
+    </div>
+    <div *ngIf="flag==1" class="warsuceess">
+      <ion-row>
+        <ion-col style="margin-top: 15px;">
+        <label class="titlecolor" >Your Day Pass has been validated successfully!</label>
+      </ion-col>
+           
+      </ion-row>
+
+      <ion-row>
+        <ion-col >
+          <img class="qr_image" src="../../../../assets/qr-success.png" width="20%" height="20%">
+          </ion-col>
+           
+      </ion-row>
+      <ion-row>
+        <ion-col>
+        <label class="titlecolor">Thank you!</label>
+        </ion-col>
+           
+      </ion-row>
+      <ion-row class="button_container">
+        <ion-buttons style="width: 100%;">
+        <ion-button class="butttonss" (click)="cancel()" >Close</ion-button>
+        </ion-buttons>
+     
+      </ion-row>
+    </div>
 </ion-content>

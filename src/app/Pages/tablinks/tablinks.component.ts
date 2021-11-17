@@ -23,5 +23,12 @@ export class TablinksComponent implements OnInit {
   }
   navigate = (where) => {
     this.router.navigate([`/tablinks/${where}`])
+  
   }
+  openWhatsapp(){
+   
+    window.open("https://wa.me/971528636790/?text=")
+  }
+
+  
 }

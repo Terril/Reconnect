@@ -70,6 +70,10 @@ const routes: Routes = [
     loadChildren: () => import('./Pages/checkout/checkout.module').then( m => m.CheckoutPageModule)
   },
   {
+    path: 'classCheckout',
+    loadChildren: () => import('./Pages/classbooking/classbooking.module').then( m => m.ClassbookingModule)
+  },
+  {
     path: 'history',
     loadChildren: () => import('./Pages/history/history.module').then( m => m.HistoryPageModule)
   },
@@ -87,7 +91,7 @@ const routes: Routes = [
     loadChildren: () => import('./Pages/resetpassword/resetpassword.module').then( m => m.ResetpasswordModule)
   },
   {
-    path: 'policy',
+    path: 'help',
     loadChildren: () => import('./Pages/policy/policy.module').then( m => m.PolicyModule)
   },
   {
@@ -95,15 +99,25 @@ const routes: Routes = [
     loadChildren: () => import('./Pages/register/register.module').then( m => m.RegisterModule)
   },
   {
+    path: 'voucherredeem',
+    loadChildren: () => import('./Pages/voucher-redeem/voucher-redeem.module').then( m => m.VoucherRedeemModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./Pages/policy/policy.module').then( m => m.PolicyModule)
+  },
+  {
     path: '',
     redirectTo: 'splash',
     pathMatch: 'full'
   },
+  
+
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules ,onSameUrlNavigation:'reload'})
   ],
   exports: [RouterModule]
 })

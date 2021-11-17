@@ -1,8 +1,8 @@
-.body_container{width: 100%; background:url(../../../assets/login-bg.png);height:  100%;--background-repeat: no-repeat ;--background-size: cover; }
+.body_container{width: 100%; background:url(../../../assets/login-bg.png);height:  100%;--background-repeat: no-repeat ;--background-size: cover; background-color: #2daebf !important;}
 .logo{margin-top: 50px;}
 .logo_container{width: auto;margin: 0px auto;display: table;margin-top: 50px;}
 .body_overlay{background:#4c919c73;height: 100%;}
-.login_container{margin:40px 20px 10px 20px;;}
+.login_container{margin:40px 20px 10px 20px;height: -webkit-fill-available;}
 .input_box{color: #20978F; background-color: white; margin-top: 5px; margin-bottom: 15px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);border-radius: 5px;}
 .input_lable{margin-top: 10px; color: #fff;font-family:Poppins-Light !important;}
 .input_icon{color: #20978F;font-size: 20px;padding: 8px 0px 5px 5px ;}
@@ -12,4 +12,6 @@
 .forget_lable{font-family:Poppins-Light !important;color: #fff;margin-top: 15px;float: right;text-decoration: none;text-align: center;}
 .lower_content {font-family:Poppins-Light !important; padding-bottom: 0 !important;bottom:0px; padding: 5px;margin-top: 30px;  color: #fff;font-size: 14px;float: right;text-decoration: none;text-align: center;}
 .footer_pre{font-family:Poppins-Light !important;}
-.footer_text{ width: 100%;padding-bottom: 0 !important;position: fixed;bottom:0px; padding: 5px;margin-bottom: 30px; margin-top: 20px; font-family:Poppins-Light !important;color: #fff;font-weight: 500;font-size: 10px;text-align: center;float: right;}
+.footer_text{ width: 100%;padding-bottom: 0 !important;bottom:0px; padding: 5px;margin-top: 20px; font-family:Poppins-Light !important;color: #fff;font-weight: 500;font-size: 10px;text-align: center;float: right;}
+.body_container1{background:url(../../../assets/login-bg.png);background-repeat: no-repeat ;background-size: cover; background-color: #2daebf !important
+}

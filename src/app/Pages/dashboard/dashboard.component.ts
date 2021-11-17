@@ -32,6 +32,11 @@ export class DashboardComponent implements OnInit {
   slideOptsThumbs = {
     slidesPerView: 1.2,
   };
+  classcartOrder= [];
+  pexpdate: any;
+  ptype: any;
+  pmemberstart: any;
+  pmemberend: any;
   constructor(private storage:Storage,public modalCtrl: ModalController,public myapp: AppComponent,private menu: MenuController,private router: Router) { 
 
     this.sliderOne =
@@ -46,12 +51,19 @@ export class DashboardComponent implements OnInit {
     this.storage.get("userdata").then(data=>{
      this.profileData = data;
      this.member_name = this.profileData.Name
-     this.exp_date =  this.profileData.MembershipEndDate
+    this.pexpdate = data.MembershipEndDate;
+     this.ptype = data.membershipCategory==''?'N/A':data.membershipCategory;
+     this.pmemberstart = data?.MembershipStartDate?.split("T")[0];
+     this.exp_date = data?.MembershipEndDate?.split("T")[0];
+    
+   
     });
   }
    ngOnInit(){
     this.menu.enable(true);
     //this.initModal();
+    let cartorderString = localStorage.getItem('classcartDetails');
+    this.classcartOrder = JSON.parse(cartorderString);
    
   }
 
@@ -133,5 +145,9 @@ export class DashboardComponent implements OnInit {
   wallet()
   {
     this.router.navigate(['/digital-wallet'])
+  }
+  cart()
+  {
+  this.router.navigate(['/cart'])
   }
 }

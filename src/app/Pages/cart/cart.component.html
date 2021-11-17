@@ -7,48 +7,49 @@
 
           <ion-row>
            <ion-col size="2" ><ion-back-button defaultHref="tablinks"></ion-back-button></ion-col>
-           <ion-col size="1" offset="7"><ion-icon  class="_cart_icon" name="bag-handle-outline"></ion-icon></ion-col>
-           <ion-col size="2" ><ion-menu-button item-right class="_menu_icon"></ion-menu-button></ion-col>
+          <ion-col size="2" offset="8" ><ion-menu-button item-right class="_menu_icon"></ion-menu-button></ion-col>
           
           </ion-row>
           <ion-row><ion-label class="header_title">My Cart</ion-label></ion-row>
          </div>
-   
+         <ion-col size="7" ><img class="right_logo" src="../../../assets/second_logo.png"/></ion-col>
       </div>
     </div>
     <ion-row>
-        <label class="total_item">2 Items</label>
+        <label class="total_item">Cart Items: {{classOrder?.length}}</label>
         
     </ion-row>
     <ion-list class="list_container">
-        <ion-row class="list_row"  *ngFor="let card of [0,1] ">
+        <ion-row class="list_row"  *ngFor="let card of classOrder; index as i">
         
            <ion-col size=4>
            
-              <img style=" width: 108px; height: 108px;border-radius: 5px;" src="../../../assets/sample.jpg">
+              <img style=" width: 108px; height: 108px;border-radius: 5px;" src="{{img}}{{card?.image}}"  onError="src='../../../assets/yoga.jpeg'" >
       
            </ion-col>
   
            <ion-col size=7>
-            <ion-row><label class="p_title">Fit and Lift Gym Center</label></ion-row>
-            <ion-row> <label class="p_sub_title">Marcus</label></ion-row>
-            <ion-row> <label class="p_price">$4000.00</label></ion-row>
+            <ion-row><label class="p_title">Name: {{card?.ClassTitle}}</label></ion-row>
+            <ion-row> <label class="p_sub_title">Trainer: {{card?.TrainerName}}</label></ion-row>
+            <ion-row> <label class="p_price">Price: AED {{card?.ClassFees}}</label></ion-row>
             <ion-row>
-                <ion-col size=7><button class="save_">Save For Later</button></ion-col>
-                <ion-col size=3 offset="1"><button class="_remove" color="danger" ><ion-icon name="trash"></ion-icon></button></ion-col>
+                <!-- <ion-col size=7><button class="save_">Save For Later</button></ion-col> -->
+                <ion-col ><button class="_remove" color="danger" (click)="removeitem(i)"><ion-icon name="trash"></ion-icon></button></ion-col>
             </ion-row>
            
           </ion-col>
   
         </ion-row>
+        <!-- <ion-row class="text-center" *ngIf="classOrder?.length==0">Please add items in cart</ion-row> -->
        
       </ion-list>
       <div class="bottom_container">
          <ion-row class="total_">
           <ion-col size=7><label class="price_title_bottom">Total Price</label> </ion-col>
-          <ion-col size=3 offset="2"><label class="price_title_bottom_value">$80000</label> </ion-col>
+          <ion-col size=3 offset="2"><label class="price_title_bottom_value">AED {{total}}</label> </ion-col>
          </ion-row>
-        <ion-button class="_button"  >Make Payment</ion-button>
+         <ion-button class="_button"  [disabled]="classOrder?.length==0 ||classOrder==null" (click)="redeemVoucher()">Redeem Voucher</ion-button>
+        <ion-button class="_button"  [disabled]="classOrder?.length==0 || classOrder==null" (click)="checkout()">Make Payment</ion-button>
       </div>
   
   </ion-content>

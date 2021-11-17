@@ -21,7 +21,7 @@
 .card_content{margin: 5px;}
 .rating_star{color:#fbff12;font-size: 13px;margin-left: 5px;padding: 2px;}
 .rating_number{ margin-left: 10px;border: 1px solid #ddd; color:#fff; font-size: 13px;padding: 2px;}
-.hotel_text{position: absolute;z-index: 999;border: 0px;top: 124px;}
+.hotel_text{position: absolute;z-index: 999;border: 0px;top: 100px;}
 .item_container{position: absolute;
     z-index: 999;
     border: 0px;
@@ -29,5 +29,15 @@
     bottom: 0px;
     width: 97%;
     height: 200px;
-    background: #0000007d;}
+    background:#00000045;}
     .rating_conainer{margin-left: 5px;display: none;}
+    .datesty{
+      font-size: 14px;
+      color: white;
+      margin-left: 11px;
+    }
+    .promotion{
+      font-size: 15px;
+      color: white;
+      margin-left: 11px;
+    }

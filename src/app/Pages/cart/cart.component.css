@@ -18,7 +18,7 @@
   .black_layer{padding: 0px;margin: 10px;}
   .card_lable_view{text-align: center;font-size: 9px;width: 100%;}
   .total_item{font-family:Poppins-Medium !important;margin: 10px;font-weight: bold;color: #545252;}
-  .list_container{margin: 5px;}
+  .list_container{margin: 5px;margin-bottom: 113px;}
 .list_row{margin: 10px 5px 10px 5px}
 .img_icon{width: 50px;height: 50px;}
 .p_title{margin-left: 10px;width: 100%; font-size: 13px; color: rgb(85, 83, 83);font-weight: 600;font-family:Poppins-Medium !important;}
@@ -40,17 +40,18 @@
       background: #f44336;
       height: 32px;
       width: 32px;
-      margin-left: 20px;
+     
       /* font-size: 14px; */
       border-radius: 4px;
       color: #fff;
     }
-.bottom_container {
-    position: fixed;
-    left: 0;
-    bottom: 10px;
-    right: 0;
-}
+    .bottom_container {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      background: #f5f5f5;
+      right: 0;
+  }
 ._button{margin: 0px auto;
   width: 90%;
     margin-top: 10px;

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ClassbookingRoutingModule } from './classbooking-routing.module';
 import { IonicModule } from '@ionic/angular';
 import { ClassbookingComponent } from './classbooking.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ClassbookingComponent } from './classbooking.component';
   imports: [
     CommonModule,
     IonicModule,
-    ClassbookingRoutingModule
+    ClassbookingRoutingModule,
+    FormsModule,
   ]
 })
 export class ClassbookingModule { }

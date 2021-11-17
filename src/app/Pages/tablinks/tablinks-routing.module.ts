@@ -17,15 +17,19 @@ const routes: Routes = [
         path: 'dashboard',
         loadChildren: () => import('../dashboard/dashboard.module').then(m => m.DashboardPageModule)
       },
+      // {
+      //   path: 'classcheckout',
+      //   loadChildren: () => import('../classbooking/classbooking.module').then(m => m.ClassbookingModule)
+      // },
+
+      // {
+      //   path: 'search',
+      //   loadChildren: () => import('../search/search.module').then(m => m.SearchPageModule)
+      // },
 
       {
-        path: 'search',
-        loadChildren: () => import('../search/search.module').then(m => m.SearchPageModule)
-      },
-
-      {
-        path: 'wishlist',
-        loadChildren: () => import('../wishlist/wishlist.module').then(m => m.WishlistPageModule)
+        path: 'history',
+        loadChildren: () => import('../history/history.module').then(m => m.HistoryPageModule)
       },
       {
         path: '',
@@ -44,6 +48,7 @@ const routes: Routes = [
     redirectTo: 'tablinks/profile',
     pathMatch: 'full'
   },
+ 
   {
     path: 'search',
     redirectTo: 'tablinks/search',

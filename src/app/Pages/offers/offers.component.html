@@ -7,13 +7,14 @@
 
           <ion-row>
            <ion-col size="2" ><ion-back-button defaultHref="tablinks"></ion-back-button></ion-col>
-           <ion-col size="1" offset="7"><ion-icon  class="_cart_icon" name="bag-handle-outline"></ion-icon></ion-col>
+           <ion-col size="1" offset="7" *ngIf="classcartOrder?.length==0"  (click)="cart()"><ion-icon  class="_cart_icon" name="bag-handle-outline"></ion-icon></ion-col>
+          <ion-col size="1" offset="7" *ngIf="classcartOrder?.length!=0"  (click)="cart()"><ion-icon  class="_cart_icon" name="bag-handle"></ion-icon></ion-col>
            <ion-col size="2" ><ion-menu-button item-right class="_menu_icon"></ion-menu-button></ion-col>
           
           </ion-row>
           <ion-row><ion-label class="header_title">Partner Offers</ion-label></ion-row>
          </div>
-   
+         <ion-col size="7" ><img class="right_logo" src="../../../assets/second_logo.png"/></ion-col>
       </div>
     </div>
 
@@ -22,13 +23,19 @@
         
        
             <ion-col>
-              <img style="height: 200px; width: 100%; border-radius: 5px;" src="../../../assets/Waves.jpg">
+              <img style="height: 210px; width: 100%; border-radius: 5px;" src="{{baseUrl}}{{item.ImagesFiles}}">
               <div class="item_container">
               <div class="hotel_text">
                     <ion-row><label class="p_title">{{item.PartnerName}}</label></ion-row>
-                    <ion-row> <label class="p_sub_title">25% off</label></ion-row>
-                    <ion-row class="rating_conainer"> <ion-icon class="rating_star" *ngFor="let item of list;let i = index" [name]="condition <= i? 'star-outline' :'star' ">
-                    </ion-icon> <label class="rating_number">2.2</label></ion-row>
+                    <ion-row><label class="promotion">{{item.Offer}}</label></ion-row>
+                    <!-- <ion-row> <label class="p_sub_title">25% off</label></ion-row> -->
+                    <ion-row>
+                      <ion-col size="7" class="p-5">
+                      <ion-label class="datesty">Start Date: {{item.StartDate}}</ion-label></ion-col>
+                    <ion-col size="7">
+                      <ion-label class="datesty">End Date:  {{item.EndDate}}</ion-label></ion-col>
+                  </ion-row>
+                   
                  </div> 
                </div>
            </ion-col>

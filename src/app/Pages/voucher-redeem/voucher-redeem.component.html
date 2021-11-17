@@ -1,0 +1,50 @@
+
+  <ion-content [fullscreen]="true">
+
+    <div class="header_banner">
+      <div class="header_overlay">
+         <div class="icon_conatiner">
+
+          <ion-row>
+           <ion-col size="2" ><ion-back-button defaultHref="tablinks"></ion-back-button></ion-col>
+           <ion-col size="1" offset="7" ><ion-icon  class="_cart_icon" name="bag-handle-outline"></ion-icon></ion-col>
+         
+           <ion-col size="2" ><ion-menu-button item-right class="_menu_icon"></ion-menu-button></ion-col>
+          
+          </ion-row>
+          <ion-row><ion-label class="header_title">Redeem Vouchers</ion-label></ion-row>
+         </div>
+   
+      </div>
+    </div>
+    <ng-container>
+      <div class="exapandable_view">
+          <ion-row>
+              <ion-col size="9">Select Voucher</ion-col>
+              <ion-col size="1" offset="2"><ion-icon name="chevron-down-outline"></ion-icon></ion-col>
+
+          </ion-row>
+      </div>
+      <div class="expandable_container">
+        <ion-list>
+        <ion-row class="subpass" *ngFor="let item of vouchersList;  index as i">
+          <ion-col (click)="redeem(item)">
+          <ion-row>
+          <ion-col class= "subpassTitle" size="9" >[{{item?.branchName}}]</ion-col>
+          <ion-col class= "subpassTitle" size="3">{{item?.voucherCount}}<br><span style="font-size: 9px;">Tap to reddem</span></ion-col>
+        </ion-row>
+        </ion-col>
+
+
+      </ion-row>
+      
+</ion-list>
+            </div>
+      </ng-container>
+    
+
+      
+     
+  
+  
+  </ion-content>

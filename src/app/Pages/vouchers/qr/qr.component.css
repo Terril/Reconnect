@@ -22,3 +22,30 @@
 .action_button_yes:hover{color: #fff; --background-hover: #28aebb;}
 .p_title{width: 100%; text-align: center; display: block;color: rgb(85, 83, 83); margin: 5px 0px; font-weight: 600;font-family: Poppins-Mediam!important;}
 .p_sub{width: 100%; text-align: center; display: block;color: rgb(85, 83, 83);font-size: 14px; margin-bottom: 10px;font-family: Poppins-Mediam!important;}
+.warning{
+    width: 100%; text-align: center; display: block; 
+}
+.warsuceess{
+    font-family: Poppins-Mediam !important;
+    width: 100%; text-align: center; display: block; 
+    background-color: hsl(0deg 0% 95%);
+    height: -webkit-fill-available;
+    border-radius: 6px;
+}
+.titlecolor{
+   
+    color: hsl(177deg 28% 26%)
+}
+.butttonss{
+    font-family: Poppins-Mediam !important;
+    font-size: 15px;--border-radius: 6px;width: 100%; height:30px;
+    background-color: hsl(175deg 65% 36%);
+    color: white;
+
+}
+.termscss{
+    margin-top: 0px;
+    margin-left: 12px;
+    font-size: 10px;
+    font-family: Poppins-medium !important;
+}

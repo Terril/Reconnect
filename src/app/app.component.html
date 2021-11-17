@@ -4,16 +4,19 @@
       <ion-content>
         <ion-list id="inbox-list">
           <ion-row class="ion-margin">
-            <ion-col size="4" class="ion-no-padding"><ion-avatar>
-              <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" />
-            </ion-avatar></ion-col>
-            <ion-col size="8"  class="ion-no-padding">
-              <ion-list id="inbox-list">
-                <ion-label>Chetan Chumble
-                  <br> 8149382548
-                </ion-label>
+            <ion-col  size="4" class="ion-no-padding">
+              <ion-avatar>
+              <img  *ngIf="userdata?.profileImage!=null" [src]="userdata?.profileImage" />
+              <img  *ngIf="userdata?.profileImage==null" src="../../../assets/no_profile.jpg" />
+            </ion-avatar>
+          </ion-col>
+            <ion-col size="8"  class="ion-no-padding gg">
+
+              <ion-label>{{userdata?.Name}}
+                <br>{{userdata?.Contact}}
+              </ion-label>
+            
               
-              </ion-list>
               
             </ion-col>
           </ion-row>
@@ -26,7 +29,14 @@
               <ion-icon  class="_icon" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
+         
           </ion-menu-toggle>
+          <ion-menu-toggle>
+          <ion-item routerDirection="root" lines="none" detail="false" routerLinkActive="selected" (click)="logout()">
+            <ion-icon  class="_icon" slot="start" ios="log-out-outline" md="log-out-sharp"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
         </ion-list>
 
         
@@ -35,3 +45,6 @@
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>
+
+
+

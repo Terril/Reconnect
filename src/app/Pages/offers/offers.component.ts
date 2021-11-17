@@ -1,6 +1,8 @@
 import { OffersService } from './offers.service';
 import { Component, OnInit } from '@angular/core';
 import { ModalController,LoadingController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-offers',
   templateUrl: './offers.component.html',
@@ -15,9 +17,15 @@ export class OffersComponent implements OnInit {
   };
   loading:any;
   offersList:any;
-  constructor(private api:OffersService,public loadingController: LoadingController) { }
+  baseUrl: any;
+  classcartOrder: any;
+  
+  constructor(private api:OffersService,public loadingController: LoadingController, private router:Router) { }
 
   async  ngOnInit(){
+    let cartorderString = localStorage.getItem('classcartDetails');
+    this.classcartOrder = JSON.parse(cartorderString);
+   this.baseUrl=environment.imageUrl;
     this.loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
@@ -34,6 +42,10 @@ export class OffersComponent implements OnInit {
     this.offersList =  data.PartnerList;
     this.loading.dismiss();
   })
+  }
+  cart()
+  {
+  this.router.navigate(['/cart'])
   }
 
 }

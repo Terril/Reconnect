@@ -86,7 +86,7 @@ else if(this.user_password==null)
         this.loading.dismiss();
        let  alert = await this.alertController.create({
           cssClass: 'my-custom-class',
-          message: 'Invalid Credentials',
+          message: 'Invalid Credentials/email id already present.',
           buttons: ['OK']
         });
         await alert.present();
