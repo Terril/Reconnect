@@ -15,6 +15,7 @@ export class PassesService {
   private BOOK_CLASS = environment.url+"ClassBookingApi/classBooking";
   private GET_QR_CODE = environment.url+"DayPassQRCodeApi/getQRCode";
   private GET_REDDEMPTION_DAYPASS_LIST = environment.url+"MemberDayPassRedemptionApi/getDayPassPriceList?memberId="
+  private GET_PAYMENT_SUCCESS_FAIL = environment.url+"MemberActivityAPI/MemberTransaction?memberId="
   
 
   httpOptions = {
@@ -63,6 +64,12 @@ _getRedeemPaaesList(memberId,branchId){
     catchError(this.handleError)
   );
 }
+_getPaymentSuccessFail(memberId,refNo){
+  return this.httpClient.get<any>(`${this.GET_PAYMENT_SUCCESS_FAIL+memberId+"&refno="+refNo}`).pipe(
+    catchError(this.handleError)
+  );
+}
+
 
   handleError(error) {
     let errorMessage = '';

@@ -314,7 +314,62 @@
         </ion-item> -->
        </div>     
    </ng-container>
+   <div class="exapandable_view"  (click)="toggle6()">
+    <ion-row>
+        <ion-col size="9">Order Details </ion-col>
+        <ion-col size="1" offset="2"><ion-icon name="{{icon_name_six}}"></ion-icon></ion-col>
+    </ion-row>
+    </div>    
+    <ng-container *ngIf="show_container_six; ">
+      <div  class="expandable_container">
+
+       <table class="tabless"> 
+         <tr class="trh" >
+           <th>Amount</th>
+           <th>TransactionId</th>
+           <th>Status</th>
+         </tr>
+         <tr class="trw" *ngFor="let transction of orderDeatilsList">
+           <td>
+            AED {{transction.authAmount}}
+           </td>
+           <td>
+             {{transction.authTransRefNo}}
+           </td>
+           <td>
+             {{transction.status }}
+           </td>
+          
+         </tr>
          
+       </table>
+       <div style="text-align: center;">
+         <ion-button (click)="loadmoreorderdetails()" *ngIf="loadMoreorder">Load More</ion-button>
+       </div>
+       <!-- <ion-item *ngFor="let transction of transctionList">
+      
+    
+     <ion-row>
+       <ion-col>
+         <label class="p_title">Paid Amount</label><br>
+         <label class="p_value">AED {{transction.TotalPrice}}</label>
+       </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col>
+       <label class="p_title">Pass Name</label><br>
+       <label class="p_value">{{transction.Passname}}</label>
+     </ion-col>
+ </ion-row>
+ <ion-row>
+   <ion-col>
+     <label class="p_title">Branch Name</label><br>
+     <label class="p_value">{{transction.branchName}}</label>
+   </ion-col>
+</ion-row>
+       </ion-item> -->
+      </div>     
+  </ng-container>
           
    </div>
    <ion-row style="width: 100%;text-align: center;">

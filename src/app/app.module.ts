@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ImagePreloader } from './Utility/ImagePreloader';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 
 
@@ -17,7 +18,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
   declarations: [AppComponent,ImagePreloader],
   entryComponents: [],
   imports: [IonicStorageModule.forRoot(),HttpClientModule,BrowserModule, IonicModule.forRoot({navAnimation: iosTransitionAnimation}), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },InAppBrowser ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

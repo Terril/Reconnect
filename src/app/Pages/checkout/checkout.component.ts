@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
 import { PassesService } from '../pasess/passes.service';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
+
 
 @Component({
   selector: 'app-checkout',
@@ -23,13 +25,15 @@ export class CheckoutComponent implements OnInit {
   maxdate: string;
   userData: any;
   loading: HTMLIonLoadingElement;
+  paymentUrl="http://rokdobaltd-001-site13.ftempurl.com/payment_form.aspx?"
 
   constructor(
     private router:Router,
     private storage:Storage,
     private api: PassesService,
     public alertController: AlertController,
-    public loadingController: LoadingController,) { }
+    public loadingController: LoadingController,
+    private iab: InAppBrowser) { }
 
  async ngOnInit(){
    
@@ -122,50 +126,34 @@ temprole="guest";
       
     }
 
-  
-    
-    if(this.creditCardName==null || this.creditCardName==''){
-      let  alert = await this.alertController.create({
-        cssClass: 'my-custom-class',
-        message: 'Please Enter Card Name.',
-        buttons: ['OK']
-      });
-      await alert.present();
-      return;
-    }
-    
-    if(this.creditCardNumber==null || this.creditCardNumber=='' || this.creditCardNumber?.length!=19){
-      let  alert = await this.alertController.create({
-        cssClass: 'my-custom-class',
-        message: 'Please Enter Valid Card Number.',
-        buttons: ['OK']
-      });
-      await alert.present();
-      return;
-    }
-    if(this.creditCardCVV==null || this.creditCardCVV=='' || this.check_cvv(this.creditCardCVV)!=true){
-      let  alert = await this.alertController.create({
-        cssClass: 'my-custom-class',
-        message: 'Please Enter Valid Card CVV.',
-        buttons: ['OK']
-      });
-      await alert.present();
+   let refno=Math.random().toString(36).substr(2, 8)
+   let amount=this.grandTotal
+   let memberId=this.userData.role=="Member"?this.userData.actualMemberId:this.userData.MemberLogId;
 
-      return;
-    }
-
+  let finalUrl=this.paymentUrl+"refno="+refno+"&amount="+amount+"&memberId="+memberId;
     
-    this.loading.present();
-    this.api._makePayment(obj).subscribe(res=>{
-      this.loading.dismiss()
-     if(res=='Success'){
-      this.success()
-      localStorage.removeItem('cartInfo')
-     }else{
-       this.fail(res);
-     }
-    })
+    const options: InAppBrowserOptions = {
+      zoom: 'yes',
+      hideurlbar:'yes',
+      closebuttoncaption:'Close',
+
+
+    }
    
+    const browser = this.iab.create(finalUrl,'_self',options);
+   
+    
+    browser.on('exit').subscribe(event => {
+      this.api._getPaymentSuccessFail(memberId,refno).subscribe(res=>{
+       if(res=='SUCCESS'){
+        this.purchasePass(obj)
+       }else{
+         this.fail(res);
+       }
+      })
+      
+   })
+
   }
   check_cvv(value){
    
@@ -181,10 +169,23 @@ temprole="guest";
   async fail(res){
     let  alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      message: res,
+      message: "Payment is Fail. Please try again",
       buttons: ['OK']
     });
     await alert.present();
 
+  }
+
+  purchasePass(obj:any){
+    this.loading.present();
+    this.api._makePayment(obj).subscribe(res=>{
+      this.loading.dismiss()
+     if(res=='Success'){
+      this.success()
+      localStorage.removeItem('cartInfo')
+     }else{
+       this.fail(res);
+     }
+    })
   }
 }

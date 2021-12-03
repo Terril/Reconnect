@@ -78,6 +78,11 @@ export class ProfileComponent implements OnInit,OnChanges {
   loadMore=true;
   loadMoretrans: boolean=true;
   AllTransctionList: any;
+  AllOrderDeatils:any;
+  loadMoreorder=true;
+  orderDeatilsList=[];
+  show_container_six: boolean=false;
+  icon_name_six= "chevron-down-outline";
  
   constructor(private menu: MenuController,
     private animationCtrl: AnimationController,
@@ -139,6 +144,7 @@ export class ProfileComponent implements OnInit,OnChanges {
      }
      this.getTransctionHistory();
      this.getActivityHistory();
+     this._getOrderDetails();
        
     });
 
@@ -206,7 +212,20 @@ export class ProfileComponent implements OnInit,OnChanges {
     }
   }
 
-
+  toggle6()
+  {
+  
+    if(this.show_container_six==false)
+    {
+     this.show_container_six = true;
+     this.icon_name_six = "chevron-down-outline"
+    }
+    else
+    {
+      this.show_container_six = false;
+      this.icon_name_six = "chevron-up-outline"
+    }
+  }
   toggle3()
   {
   
@@ -338,6 +357,28 @@ export class ProfileComponent implements OnInit,OnChanges {
     })
   }
 
+  _getOrderDetails(){
+    this.orderDeatilsList=[];
+    this.loading.present(); 
+    this.api._getOrderDetails(this.MemberId).subscribe(res=>{
+      this.AllOrderDeatils=res;
+      this.orderDeatilsList=[];
+      if(res.length>=5){
+        this.loadMoreorder=true;
+        for(let i=0;i<5;i++){
+          this.orderDeatilsList?.push(res[i]);
+        
+        }
+       
+      }else{
+        this.loadMoreorder=false;
+      this.orderDeatilsList=res;
+    }
+    
+      this.loading.dismiss();
+    })
+  }
+
   _getAggriment(){
     this.loading.present();
     let memberId=this.userdata.role=="Member"?this.userdata.actualMemberId:this.userdata.MemberLogId
@@ -385,6 +426,11 @@ export class ProfileComponent implements OnInit,OnChanges {
   this.loadMoretrans=false;
   this.transctionList=[];
   this.transctionList=this.AllTransctionList;
+ }
+ loadmoreorderdetails(){
+  this.loadMoreorder=false;
+  this.orderDeatilsList=[];
+  this.orderDeatilsList=this.AllOrderDeatils;
  }
 }
 

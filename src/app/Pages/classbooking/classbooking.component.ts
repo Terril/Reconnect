@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
 import { PassesService } from '../pasess/passes.service';
@@ -27,11 +28,14 @@ export class ClassbookingComponent implements OnInit {
   condition: number = 2;
   classcartOrder=[];
   total: number;
+  paymentUrl="http://rokdobaltd-001-site13.ftempurl.com/payment_form.aspx?"
+
   constructor( private router:Router, 
     private storage:Storage,  
     private api: PassesService,
     public alertController: AlertController,
-    public loadingController: LoadingController) { }
+    public loadingController: LoadingController,
+    private iab: InAppBrowser) { }
 
  async ngOnInit() {
     await this.storage.create();
@@ -110,36 +114,7 @@ export class ClassbookingComponent implements OnInit {
   }
   async onCompletePayment(){
 
-    
-    if(this.creditCardName==null || this.creditCardName==''){
-      let  alert = await this.alertController.create({
-        cssClass: 'my-custom-class',
-        message: 'Please Enter Card Name.',
-        buttons: ['OK']
-      });
-      await alert.present();
-      return;
-    }
-    if(this.creditCardNumber==null || this.creditCardNumber=='' || this.creditCardNumber?.length!=19){
-      let  alert = await this.alertController.create({
-        cssClass: 'my-custom-class',
-        message: 'Please Enter Valid Card Number.',
-        buttons: ['OK']
-      });
-      await alert.present();
-      return;
-    }
-    if(this.creditCardCVV==null || this.creditCardCVV==''){
-      let  alert = await this.alertController.create({
-        cssClass: 'my-custom-class',
-        message: 'Please Enter Valid Card CVV.',
-        buttons: ['OK']
-      });
-      await alert.present();
-
-      return;
-    }
-    this.loading.present();
+  
     const obj={
       cardName:this.creditCardName,
       cardNumber:this.creditCardNumber,
@@ -157,23 +132,38 @@ export class ClassbookingComponent implements OnInit {
       PaymentStatus:"Complete",
       ModeofPayment:"Card",
       ReferenceNo:"112122"
+ }
+    let refno=Math.random().toString(36).substr(2, 8)
+    let amount=this.total
+    let memberId=this.userData.role=="Member"?this.userData.actualMemberId:this.userData.MemberLogId;
+ 
+   let finalUrl=this.paymentUrl+"refno="+refno+"&amount="+amount+"&memberId="+memberId;
+     
 
-      
+
+    const options: InAppBrowserOptions = {
+      zoom: 'yes',
+      hideurlbar:'yes',
+      closebuttoncaption:'Close',
+
+
     }
-    
-
-    this.api._bookClass(obj).subscribe(res=>{
-    
-      this.loading.dismiss()
-     if(res=='SUCCESS'){
-      this.success()
-      localStorage.removeItem('classcartInfo')
-      localStorage.removeItem('classcartDetails')
-     }else{
-       this.fail(res);
-     }
-    })
    
+    const browser = this.iab.create(finalUrl,'_self',options);
+   
+
+     browser.on('exit').subscribe(event => {
+      this.api._getPaymentSuccessFail(memberId,refno).subscribe(res=>{
+       if(res=='SUCCESS'){
+         obj.ReferenceNo=refno;
+         obj.PaymentStatus="Complete"
+        this.bookClass(obj)
+       }else{
+         this.fail(res);
+       }
+      })
+      
+   })
   }
   getTotal(){
     this.total=0;
@@ -184,10 +174,24 @@ export class ClassbookingComponent implements OnInit {
   async fail(res){
     let  alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      message: res,
+      message: "Payment is Fail. Please try again",
       buttons: ['OK']
     });
     await alert.present();
 
+  }
+
+  bookClass(obj:any){
+    this.loading.present();
+    this.api._bookClass(obj).subscribe(res=>{
+    this.loading.dismiss()
+     if(res=='SUCCESS'){
+      this.success()
+      localStorage.removeItem('classcartInfo')
+      localStorage.removeItem('classcartDetails')
+     }else{
+       this.fail(res);
+     }
+    })
   }
 }
