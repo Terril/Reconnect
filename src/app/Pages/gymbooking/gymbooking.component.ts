@@ -50,6 +50,7 @@ export class GymbookingComponent implements OnInit {
   toast: HTMLIonToastElement;
   toast2: HTMLIonToastElement;
   img: any;
+  classcartOrder: any;
 
   constructor(public modalController: ModalController,
     public api:GymService, 
@@ -62,6 +63,8 @@ export class GymbookingComponent implements OnInit {
    }
 
   async ngOnInit(){
+    let cartorderString = localStorage.getItem('classcartDetails');
+    this.classcartOrder = JSON.parse(cartorderString);
     this.img=environment.imageUrl;
 
     this.storage.get("userdata").then(data=>{
@@ -472,5 +475,9 @@ async checkdate(){
     buttons: ['OK']
   });
   await alert.present();
+}
+cart()
+{
+this.router.navigate(['/cart'])
 }
 }

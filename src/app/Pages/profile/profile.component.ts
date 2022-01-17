@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage-angular';
 import { ProfileService } from './profile.service';
 import { environment } from 'src/environments/environment';
 import { GlobalFooService } from 'src/app/Services/GlobalServices.service';
+import { Router } from '@angular/router';
 
 declare var $: any;
 @Component({
@@ -83,12 +84,14 @@ export class ProfileComponent implements OnInit,OnChanges {
   orderDeatilsList=[];
   show_container_six: boolean=false;
   icon_name_six= "chevron-down-outline";
+  classcartOrder: any;
  
   constructor(private menu: MenuController,
     private animationCtrl: AnimationController,
     public loadingController: LoadingController,
     private globalFooService: GlobalFooService,
     public toastController: ToastController,
+    private router:Router,
     private storage:Storage,private api:ProfileService) {   }
   
     ngOnChanges(changes: SimpleChanges): void {
@@ -97,6 +100,8 @@ export class ProfileComponent implements OnInit,OnChanges {
 
 
   async ngOnInit() {
+    let cartorderString = localStorage.getItem('classcartDetails');
+    this.classcartOrder = JSON.parse(cartorderString);
     this.loadMore=true;
     this.loadMoretrans=true;
     this.loading = await this.loadingController.create({
@@ -432,5 +437,9 @@ export class ProfileComponent implements OnInit,OnChanges {
   this.orderDeatilsList=[];
   this.orderDeatilsList=this.AllOrderDeatils;
  }
+ cart()
+{
+this.router.navigate(['/cart'])
+}
 }
 

@@ -148,22 +148,24 @@ export class ClassbookingComponent implements OnInit {
 
 
     }
-   
-    const browser = this.iab.create(finalUrl,'_self',options);
-   
-
-     browser.on('exit').subscribe(event => {
-      this.api._getPaymentSuccessFail(memberId,refno).subscribe(res=>{
-       if(res=='SUCCESS'){
-         obj.ReferenceNo=refno;
+        obj.ReferenceNo=refno;
          obj.PaymentStatus="Complete"
         this.bookClass(obj)
-       }else{
-         this.fail(res);
-       }
-      })
+    // const browser = this.iab.create(finalUrl,'_self',options);
+   
+
+  //    browser.on('exit').subscribe(event => {
+  //     this.api._getPaymentSuccessFail(memberId,refno).subscribe(res=>{
+  //      if(res=='SUCCESS'){
+  //        obj.ReferenceNo=refno;
+  //        obj.PaymentStatus="Complete"
+  //       this.bookClass(obj)
+  //      }else{
+  //        this.fail(res);
+  //      }
+  //     })
       
-   })
+  //  })
   }
   getTotal(){
     this.total=0;

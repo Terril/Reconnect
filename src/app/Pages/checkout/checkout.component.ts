@@ -140,19 +140,19 @@ temprole="guest";
 
     }
    
-    const browser = this.iab.create(finalUrl,'_self',options);
-   
+   // const browser = this.iab.create(finalUrl,'_self',options);
+    this.purchasePass(obj)
     
-    browser.on('exit').subscribe(event => {
-      this.api._getPaymentSuccessFail(memberId,refno).subscribe(res=>{
-       if(res=='SUCCESS'){
-        this.purchasePass(obj)
-       }else{
-         this.fail(res);
-       }
-      })
+  //   browser.on('exit').subscribe(event => {
+  //     this.api._getPaymentSuccessFail(memberId,refno).subscribe(res=>{
+  //      if(res=='SUCCESS'){
+  //       this.purchasePass(obj)
+  //      }else{
+  //        this.fail(res);
+  //      }
+  //     })
       
-   })
+  //  })
 
   }
   check_cvv(value){

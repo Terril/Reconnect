@@ -27,10 +27,10 @@
       <ion-row class="list_row ordercard"  *ngFor="let item of cartInfo ">
      
          <ion-col >
-          <ion-row><label class="p_price">Branch Name:<span class="p_title">{{item.branchName}}</span></label></ion-row>
-          <ion-row> <label class="p_price">Pass Type<span class="p_title">{{item.days}}</span></label></ion-row>
-          <ion-row> <label class="p_price">Pass Name <span class="p_title">{{item.Type}}</span></label></ion-row>
-          <ion-row> <label class="p_price">Total<span class="p_title">AED {{item.Price}} X {{item.noofpasses}} = AED {{item.Price*item.noofpasses}}</span></label></ion-row>
+          <ion-row> <label class="p_price">Branch Name :<span class="p_title">{{item.branchName}}</span></label></ion-row>
+          <ion-row> <label class="p_price" style="padding-left: 25px;">  Pass Type :<span class="p_title">{{item.days}}</span></label></ion-row>
+          <ion-row> <label class="p_price" style="padding-left: 18px;">  Pass Name :<span class="p_title">{{item.Type}}</span></label></ion-row>
+          <ion-row> <label class="p_price" style="padding-left: 58px;">      Total :<span class="p_title">AED {{item.Price}} X {{item.noofpasses}} = AED {{item.Price*item.noofpasses}}</span></label></ion-row>
          
         </ion-col>
   
